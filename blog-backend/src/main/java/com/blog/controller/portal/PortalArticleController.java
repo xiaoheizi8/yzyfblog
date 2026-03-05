@@ -4,6 +4,7 @@ import cn.dev33.satoken.stp.StpUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.blog.annotation.Idempotent;
 import com.blog.common.PageResult;
 import com.blog.common.Result;
 import com.blog.model.entity.Article;
@@ -38,6 +39,7 @@ public class PortalArticleController {
 
     @Operation(summary = "发布文章")
     @PostMapping
+    @Idempotent(expireSeconds = 10)
     public Result<Article> publish(@RequestBody Map<String, Object> body) {
         Long userId = StpUtil.getLoginIdAsLong();
         Object titleObj = body.get("title");
@@ -88,9 +90,10 @@ public class PortalArticleController {
             }
         }
 
-        // 为自定义标签创建 Tag，并记录其ID
+        // 为自定义标签创建 Tag，并记录其ID（名称去重后再处理）
         if (!newTagNames.isEmpty()) {
-            for (String name : newTagNames) {
+            java.util.Set<String> uniqueNames = new java.util.LinkedHashSet<>(newTagNames);
+            for (String name : uniqueNames) {
                 Tag exist = tagMapper.selectOne(
                         new com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper<Tag>()
                                 .eq(Tag::getName, name)

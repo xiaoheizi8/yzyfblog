@@ -1,6 +1,7 @@
 package com.blog.controller.admin;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.blog.annotation.Idempotent;
 import com.blog.annotation.Log;
 import com.blog.common.PageResult;
 import com.blog.common.Result;
@@ -72,6 +73,7 @@ public class AdminUserController {
     @Operation(summary = "禁用用户")
     @PutMapping("/{id}/disable")
     @Log(module = "用户", operation = "禁用用户")
+    @Idempotent(expireSeconds = 5)
     public Result<Void> disable(@PathVariable Long id) {
         adminUserService.updateStatus(id, 0);
         return Result.ok();
@@ -80,6 +82,7 @@ public class AdminUserController {
     @Operation(summary = "启用用户")
     @PutMapping("/{id}/enable")
     @Log(module = "用户", operation = "启用用户")
+    @Idempotent(expireSeconds = 5)
     public Result<Void> enable(@PathVariable Long id) {
         adminUserService.updateStatus(id, 1);
         return Result.ok();

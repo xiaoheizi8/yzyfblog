@@ -16,6 +16,13 @@ export default function request(options: RequestOptions) {
     opts.url = `${BASE_URL}${path}`
   }
 
+  // 为写操作自动附加幂等 Key（简单随机串）
+  const method = (opts.method || 'GET').toUpperCase()
+  if (['POST', 'PUT', 'DELETE'].includes(method)) {
+    const idemKey = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`
+    opts.header = Object.assign({}, opts.header, { 'Idempotency-Key': idemKey })
+  }
+
   // 统一加上 Authorization 头（除非显式 skipAuth）
   if (!options.skipAuth) {
     const token = uni.getStorageSync('token')

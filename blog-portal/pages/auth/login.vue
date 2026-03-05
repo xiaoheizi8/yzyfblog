@@ -1,17 +1,27 @@
 <template>
   <view class="page">
-    <view class="card">
-      <text class="title">账号登录</text>
-      <view class="form-item">
-        <text class="label">用户名</text>
-        <input v-model="username" placeholder="请输入用户名" class="input" />
+    <view class="login-wrapper">
+      <view class="brand">
+        <text class="brand-title">风月博客</text>
+        <text class="brand-sub">欢迎登录</text>
       </view>
-      <view class="form-item">
-        <text class="label">密码</text>
-        <input v-model="password" placeholder="请输入密码" password class="input" />
+      <view class="card">
+        <view class="card-body">
+          <view class="field">
+            <text class="field-label">用户名</text>
+            <input v-model="username" placeholder="请输入用户名" class="field-input" />
+          </view>
+          <view class="field">
+            <text class="field-label">密码</text>
+            <input v-model="password" placeholder="请输入密码" password class="field-input" />
+          </view>
+          <button class="btn-primary" :loading="loading" @click="onLogin">登录</button>
+        </view>
+        <view class="card-footer" @click="goRegister">
+          <text class="footer-text">没有账号？</text>
+          <text class="footer-link">去注册</text>
+        </view>
       </view>
-      <button class="btn" @click="onLogin">登录</button>
-      <view class="switch" @click="goRegister">没有账号？去注册</view>
     </view>
   </view>
 </template>
@@ -65,48 +75,75 @@ function goRegister() {
 
 <style scoped>
 .page {
-  padding: 40rpx;
+  min-height: 100vh;
+  padding: 64rpx 40rpx;
+  background: #f7f8fa;
+  box-sizing: border-box;
+}
+.login-wrapper {
+  margin-top: 40rpx;
+}
+.brand {
+  margin-bottom: 40rpx;
+}
+.brand-title {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #323233;
+}
+.brand-sub {
+  margin-top: 8rpx;
+  font-size: 26rpx;
+  color: #969799;
 }
 .card {
-  margin-top: 80rpx;
-  background: #fff;
-  border-radius: 16rpx;
-  padding: 32rpx 28rpx;
-  box-shadow: 0 12rpx 24rpx rgba(15, 35, 68, 0.08);
+  background: #ffffff;
+  border-radius: 24rpx;
+  box-shadow: 0 8rpx 24rpx rgba(125, 137, 149, 0.16);
+  overflow: hidden;
 }
-.title {
-  font-size: 36rpx;
-  font-weight: 600;
-  margin-bottom: 32rpx;
+.card-body {
+  padding: 32rpx 28rpx 16rpx;
 }
-.form-item {
+.field {
   margin-bottom: 24rpx;
 }
-.label {
+.field-label {
   display: block;
   font-size: 26rpx;
-  color: #555;
+  color: #323233;
   margin-bottom: 8rpx;
 }
-.input {
+.field-input {
   height: 72rpx;
-  border-radius: 12rpx;
-  background: #f5f5f5;
   padding: 0 20rpx;
-}
-.btn {
-  margin-top: 12rpx;
-  height: 76rpx;
   border-radius: 12rpx;
-  background: linear-gradient(135deg, #1890ff, #40a9ff);
-  color: #fff;
+  background: #f7f8fa;
+  font-size: 28rpx;
+}
+.btn-primary {
+  margin-top: 8rpx;
+  height: 80rpx;
+  border-radius: 999rpx;
+  background: linear-gradient(135deg, #1989fa, #2b85e4);
+  color: #ffffff;
   font-size: 30rpx;
 }
-.switch {
-  margin-top: 24rpx;
+.card-footer {
+  padding: 20rpx 28rpx 24rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-top: 1rpx solid #f5f5f5;
+}
+.footer-text {
   font-size: 24rpx;
-  color: #1890ff;
-  text-align: center;
+  color: #969799;
+}
+.footer-link {
+  margin-left: 4rpx;
+  font-size: 24rpx;
+  color: #1989fa;
 }
 </style>
 

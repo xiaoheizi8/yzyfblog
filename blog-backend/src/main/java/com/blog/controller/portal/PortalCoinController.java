@@ -1,6 +1,7 @@
 package com.blog.controller.portal;
 
 import cn.dev33.satoken.stp.StpUtil;
+import com.blog.annotation.Idempotent;
 import com.blog.common.Result;
 import com.blog.model.entity.UserWallet;
 import com.blog.model.vo.portal.CoinRankVO;
@@ -29,6 +30,7 @@ public class PortalCoinController {
 
     @Operation(summary = "每日签到领取风月币")
     @PostMapping("/sign-in")
+    @Idempotent(expireSeconds = 10)
     public Result<Void> signIn() {
         Long userId = StpUtil.getLoginIdAsLong();
         walletService.signIn(userId);
@@ -44,6 +46,7 @@ public class PortalCoinController {
 
     @Operation(summary = "文章打赏")
     @PostMapping("/article/{articleId}/tip")
+    @Idempotent(expireSeconds = 10)
     public Result<Void> tip(@PathVariable Long articleId, @RequestBody Map<String, Object> body) {
         Long userId = StpUtil.getLoginIdAsLong();
         Object amountObj = body.get("amount");

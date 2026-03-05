@@ -22,6 +22,9 @@
         @change="onTableChange"
       >
         <template #bodyCell="{ column, record }">
+          <template v-if="column.key === 'content'">
+            <a @click="openDetail(record)">查看</a>
+          </template>
           <template v-if="column.key === 'action'">
             <a-popconfirm title="确定删除该评论？" @confirm="onDelete(record.id)">
               <a class="danger">删除</a>
@@ -30,6 +33,25 @@
         </template>
       </a-table>
     </a-card>
+
+    <a-modal
+      v-model:open="detailVisible"
+      title="评论详情"
+      :footer="null"
+      width="600px"
+    >
+      <a-descriptions v-if="current" bordered :column="1" size="small">
+        <a-descriptions-item label="ID">{{ current.id }}</a-descriptions-item>
+        <a-descriptions-item label="文章ID">{{ current.articleId }}</a-descriptions-item>
+        <a-descriptions-item label="用户ID">{{ current.userId || '游客' }}</a-descriptions-item>
+        <a-descriptions-item label="创建时间">{{ current.createTime }}</a-descriptions-item>
+        <a-descriptions-item label="内容">
+          <div style="white-space: pre-wrap">
+            {{ current.content }}
+          </div>
+        </a-descriptions-item>
+      </a-descriptions>
+    </a-modal>
   </div>
 </template>
 
@@ -50,6 +72,8 @@ const columns = [
 
 const list = ref<CommentRecord[]>([])
 const loading = ref(false)
+const detailVisible = ref(false)
+const current = ref<CommentRecord | null>(null)
 const query = reactive<{ articleId?: number }>({
   articleId: undefined,
 })
@@ -93,6 +117,11 @@ async function onDelete(id: number) {
   await commentApi.delete(id)
   message.success('已删除')
   load()
+}
+
+function openDetail(record: CommentRecord) {
+  current.value = record
+  detailVisible.value = true
 }
 
 onMounted(() => load())

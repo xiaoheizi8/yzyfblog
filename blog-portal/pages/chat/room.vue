@@ -26,6 +26,8 @@ import { ref, onMounted, onUnmounted } from 'vue'
 const messages = ref<any[]>([])
 const input = ref('')
 let socketTask: UniApp.SocketTask | null = null
+// 记录本地已发送的消息 ID，用于避免自己消息重复展示
+const sentIds = new Set<string>()
 
 const WS_URL = 'ws://localhost:8080/api/ws/chat'
 
@@ -40,13 +42,24 @@ function connect() {
   socketTask.onMessage((res) => {
     try {
       const data = JSON.parse(res.data as string)
+      const me = uni.getStorageSync('user') || {}
+      const myName = me.nickname || me.username
+      const fromName = data.nickname || data.username
+      const isSelf = myName && fromName && myName === fromName
+      // 如果是自己刚刚本地推送过的消息（通过 clientId 标识），则忽略这次回显
+      if (data.clientId && sentIds.has(data.clientId)) {
+        return
+      }
+      if (data.clientId) {
+        sentIds.add(data.clientId)
+      }
       messages.value.push({
-        id: Date.now(),
-        nickname: data.nickname || '游客',
+        id: data.clientId || Date.now(),
+        nickname: fromName || '游客',
         content: data.content || '',
         time: data.time || '',
         isOwner: !!data.isOwner,
-        isSelf: data.isSelf === true,
+        isSelf,
       })
       scrollToBottom()
     } catch (e) {
@@ -84,23 +97,25 @@ function send() {
   const mm = String(now.getMinutes()).padStart(2, '0')
   const time = `${hh}:${mm}`
   const isOwner = nickname === '管理员' || nickname === 'admin'
+  const clientId = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`
   const payload = {
     type: 'TEXT',
     content: text,
     nickname,
-    isSelf: true,
+    clientId,
     time,
     isOwner,
   }
-  // 本地先展示，避免等待服务端回显导致“没反应”的感觉
+  // 本地先展示一条，保证用户立即能看到自己发送的内容
   messages.value.push({
-    id: Date.now(),
+    id: clientId,
     nickname,
     content: text,
     time,
     isOwner,
     isSelf: true,
   })
+  sentIds.add(clientId)
   scrollToBottom()
   input.value = ''
   if (!socketTask) {

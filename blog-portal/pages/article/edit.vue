@@ -68,7 +68,7 @@
 
 <script setup lang="ts">
 // @ts-nocheck
-import { reactive, ref, onMounted } from 'vue'
+import { reactive, ref, onMounted, computed } from 'vue'
 import request, { BASE_URL } from '@/utils/request'
 
 const form = reactive({
@@ -98,7 +98,15 @@ function loadTags() {
     method: 'GET',
     success(res) {
       const data = res.data?.data || res.data
-      tags.value = data || []
+      const list = data || []
+      // 根据 ID 去重，避免标签重复显示
+      const map = new Map()
+      list.forEach((t: any) => {
+        if (t && t.id != null && !map.has(t.id)) {
+          map.set(t.id, t)
+        }
+      })
+      tags.value = Array.from(map.values())
     },
   })
 }
@@ -167,8 +175,17 @@ function toggleTagPanel() {
 function addNewTag() {
   const name = newTagName.value.trim()
   if (!name) return
-  if (!newTags.value.includes(name)) {
-    newTags.value.push(name)
+  // 如果与已有标签同名，则直接勾选该标签，不再作为“新增标签”重复出现
+  const exist = tags.value.find((t: any) => t && t.name === name)
+  if (exist && exist.id != null) {
+    if (!selectedTagIds.value.includes(exist.id)) {
+      selectedTagIds.value.push(exist.id)
+    }
+  } else {
+    // 在新增标签列表中去重
+    if (!newTags.value.includes(name)) {
+      newTags.value.push(name)
+    }
   }
   newTagName.value = ''
 }
@@ -218,13 +235,14 @@ function submit() {
 
 <style scoped>
 .page {
-  padding: 24rpx;
+  padding: 24rpx 20rpx;
+  background: #f7f8fa;
 }
 .card {
-  background: #fff;
-  border-radius: 16rpx;
+  background: #ffffff;
+  border-radius: 20rpx;
   padding: 24rpx 20rpx;
-  box-shadow: 0 12rpx 24rpx rgba(15, 35, 68, 0.06);
+  box-shadow: 0 8rpx 24rpx rgba(125, 137, 149, 0.12);
 }
 .title {
   font-size: 36rpx;

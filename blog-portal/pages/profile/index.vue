@@ -229,15 +229,17 @@ function saveProfile() {
 
 <style scoped>
 .page {
-  padding: 32rpx;
+  padding: 32rpx 24rpx;
+  background: #f7f8fa;
 }
 .profile-card {
   display: flex;
   align-items: center;
   padding: 32rpx 24rpx;
-  background: #fff;
+  background: #ffffff;
   border-radius: 16rpx;
   margin-bottom: 32rpx;
+  box-shadow: 0 8rpx 24rpx rgba(125, 137, 149, 0.12);
 }
 .avatar-wrap {
   width: 120rpx;
@@ -269,8 +271,9 @@ function saveProfile() {
   font-size: 26rpx;
 }
 .menu {
-  background: #fff;
+  background: #ffffff;
   border-radius: 16rpx;
+  box-shadow: 0 6rpx 18rpx rgba(125, 137, 149, 0.08);
 }
 .menu-item {
   padding: 24rpx 32rpx;
@@ -284,9 +287,10 @@ function saveProfile() {
 }
 .wallet-card {
   margin-top: 24rpx;
-  background: #fff;
+  background: #ffffff;
   border-radius: 16rpx;
   padding: 24rpx 28rpx;
+  box-shadow: 0 6rpx 18rpx rgba(125, 137, 149, 0.08);
 }
 .wallet-row {
   display: flex;

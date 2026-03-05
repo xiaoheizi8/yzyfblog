@@ -2,6 +2,7 @@ package com.blog.controller.admin;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.blog.annotation.Idempotent;
 import com.blog.annotation.Log;
 import com.blog.common.PageResult;
 import com.blog.common.Result;
@@ -16,6 +17,7 @@ import com.blog.mapper.UserMapper;
 import com.blog.model.vo.admin.ArticleAdminVO;
 import com.blog.model.vo.portal.ArticleLikeRankVO;
 import com.blog.service.ArticleLikeService;
+import cn.dev33.satoken.stp.StpUtil;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -60,6 +62,13 @@ public class AdminArticleController {
         }
         if (status != null) {
             q.eq(Article::getStatus, status);
+        }
+        // RBAC：如果是作者角色且不是管理员，则只看自己的文章；否则（管理员或其他角色）可查看全部
+        boolean isAdmin = StpUtil.hasRole("admin");
+        boolean isAuthor = StpUtil.hasRole("author");
+        if (!isAdmin && isAuthor) {
+            Long loginId = StpUtil.getLoginIdAsLong();
+            q.eq(Article::getUserId, loginId);
         }
         // 按作者（用户名或昵称）模糊搜索
         if (author != null && !author.isBlank()) {
@@ -110,6 +119,12 @@ public class AdminArticleController {
                 vo.setId(a.getId());
                 vo.setTitle(a.getTitle());
                 vo.setSummary(a.getSummary());
+                // 封面优先使用 coverImage，没有则从内容中提取第一张图片作为封面
+                String cover = a.getCoverImage();
+                if ((cover == null || cover.isBlank()) && a.getContent() != null) {
+                    cover = extractFirstImageUrl(a.getContent());
+                }
+                vo.setCoverImage(cover);
                 vo.setViewCount(a.getViewCount());
                 vo.setLikeCount(a.getLikeCount());
                 vo.setCommentCount(a.getCommentCount());
@@ -127,6 +142,22 @@ public class AdminArticleController {
         }
         PageResult<ArticleAdminVO> pr = PageResult.of(result.getTotal(), result.getCurrent(), result.getSize(), voList);
         return Result.ok(pr);
+    }
+
+    /**
+     * 从文章内容中提取第一张图片的 URL，支持简单 Markdown 语法：![](url)。
+     */
+    private String extractFirstImageUrl(String content) {
+        if (content == null || content.isBlank()) {
+            return null;
+        }
+        // 匹配 Markdown 图片：![](...)
+        java.util.regex.Pattern p = java.util.regex.Pattern.compile("!\\[[^\\]]*]\\((https?[^)]+)\\)");
+        java.util.regex.Matcher m = p.matcher(content);
+        if (m.find()) {
+            return m.group(1);
+        }
+        return null;
     }
 
     @Operation(summary = "文章详情")
@@ -159,12 +190,19 @@ public class AdminArticleController {
     @Operation(summary = "新增文章（含标签）")
     @PostMapping
     @Log(module = "文章", operation = "新增文章")
+    @Idempotent(expireSeconds = 10)
     public Result<Void> create(@RequestBody java.util.Map<String, Object> body) {
         Article a = new Article();
         Object titleObj = body.get("title");
         Object contentObj = body.get("content");
         if (titleObj == null || titleObj.toString().isBlank() || contentObj == null || contentObj.toString().isBlank()) {
             return Result.fail("标题或内容不能为空");
+        }
+        // 文章归属：默认归属当前登录用户（管理员创建则归属管理员账号，作者创建则归属作者本人）
+        try {
+            Long loginId = StpUtil.getLoginIdAsLong();
+            a.setUserId(loginId);
+        } catch (Exception ignored) {
         }
         a.setTitle(titleObj.toString());
         a.setSummary(body.get("summary") == null ? null : body.get("summary").toString());
@@ -185,6 +223,7 @@ public class AdminArticleController {
     @Operation(summary = "修改文章（含标签）")
     @PutMapping("/{id}")
     @Log(module = "文章", operation = "修改文章")
+    @Idempotent(expireSeconds = 10)
     public Result<Void> update(@PathVariable Long id, @RequestBody java.util.Map<String, Object> body) {
         Article a = articleMapper.selectById(id);
         if (a == null) {
@@ -221,6 +260,7 @@ public class AdminArticleController {
     @Operation(summary = "修改文章状态（草稿/发布/违规）")
     @PutMapping("/{id}/status")
     @Log(module = "文章", operation = "修改文章状态")
+    @Idempotent(expireSeconds = 5)
     public Result<Void> updateStatus(@PathVariable Long id, @RequestParam Integer status) {
         Article article = new Article();
         article.setId(id);
@@ -259,7 +299,9 @@ public class AdminArticleController {
         }
 
         if (!newTagNames.isEmpty()) {
-            for (String name : newTagNames) {
+            // 名称去重后再处理，避免重复新增标签
+            java.util.Set<String> uniqueNames = new java.util.LinkedHashSet<>(newTagNames);
+            for (String name : uniqueNames) {
                 Tag exist = tagMapper.selectOne(
                         new com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper<Tag>()
                                 .eq(Tag::getName, name)

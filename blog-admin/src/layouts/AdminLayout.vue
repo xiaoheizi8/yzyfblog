@@ -83,29 +83,32 @@ async function handleLogout() {
 <style scoped>
 .admin-layout {
   min-height: 100vh;
+  background: #f5f2ea;
 }
 
 .admin-sider {
-  background: linear-gradient(180deg, #001529 0%, #000c17 60%, #120338 100%);
+  /* 水墨渐变侧边栏，偏灰黑色 */
+  background: radial-gradient(circle at 0 0, #4a4a4a 0%, #1f1f1f 45%, #000000 100%);
 }
 
 .logo {
   display: flex;
   align-items: center;
   padding: 16px 12px;
-  color: #fff;
+  color: #fdfaf4;
 }
 
 .logo-mark {
   width: 32px;
   height: 32px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #722ed1, #40a9ff);
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, #fdfaf4 0%, #d1bfa3 40%, #3f3f3f 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
   margin-right: 8px;
+  color: #1f1f1f;
 }
 
 .logo-text {
@@ -119,11 +122,12 @@ async function handleLogout() {
 
 .logo-sub {
   font-size: 12px;
-  opacity: 0.8;
+  opacity: 0.75;
 }
 
 .admin-main {
-  background: radial-gradient(circle at top left, #f0f5ff, #ffffff 40%, #f9f0ff 100%);
+  /* 背景类似宣纸的米色渐变 */
+  background: radial-gradient(circle at top left, #f5f2ea 0%, #f9f5ee 40%, #f1e6d8 100%);
 }
 
 .admin-header {
@@ -141,11 +145,13 @@ async function handleLogout() {
 }
 
 .admin-content-inner {
-  background: #ffffff;
+  background: #fcfaf5;
   min-height: calc(100vh - 96px);
   padding: 24px;
   border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(0, 0, 0, 0.02);
 }
 
 .user-info {

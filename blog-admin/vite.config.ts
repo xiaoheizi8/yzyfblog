@@ -8,9 +8,11 @@ export default defineConfig({
     alias: { '@': path.resolve(__dirname, 'src') },
   },
   server: {
-    port: 5174,
+    // 管理端开发端口：4000
+    port: 4000,
     proxy: {
       '/api': { target: 'http://localhost:8080', changeOrigin: true },
     },
   },
 })
+

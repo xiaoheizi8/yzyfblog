@@ -12,6 +12,7 @@ export interface ArticleRecord {
   title: string
   summary?: string
   content?: string
+  coverImage?: string
   viewCount?: number
   likeCount?: number
   commentCount?: number

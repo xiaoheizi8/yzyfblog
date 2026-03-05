@@ -21,6 +21,11 @@ public class ArticleAdminVO {
 
     private String summary;
 
+    /**
+     * 封面图片地址。
+     */
+    private String coverImage;
+
     private Integer viewCount;
 
     private Integer likeCount;

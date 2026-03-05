@@ -1,6 +1,7 @@
 package com.blog.controller.admin;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.blog.annotation.Idempotent;
 import com.blog.annotation.Log;
 import com.blog.common.Result;
 import com.blog.model.entity.Tag;
@@ -36,11 +37,13 @@ public class AdminTagController {
 
     @PostMapping
     @Log(module = "标签", operation = "新增标签")
+    @Idempotent(expireSeconds = 5)
     public Result<Tag> create(@RequestBody Map<String, String> body) {
         String name = body.get("name");
         if (name == null || name.isBlank()) {
             return Result.fail("标签名称不能为空");
         }
+        name = name.trim();
         Tag exist = tagMapper.selectOne(
                 new LambdaQueryWrapper<Tag>()
                         .eq(Tag::getName, name)

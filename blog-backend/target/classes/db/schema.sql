@@ -299,3 +299,45 @@ VALUES
 ((SELECT id FROM sys_user WHERE username = 'user1' LIMIT 1), '这个博客系统好炫酷！', '127.0.0.1', 1, 0),
 ((SELECT id FROM sys_user WHERE username = 'user2' LIMIT 1), '期待更多 SpringBoot 教程～', '127.0.0.1', 1, 0),
 ((SELECT id FROM sys_user WHERE username = 'user3' LIMIT 1), 'UniApp 门户很适合移动端阅读。', '127.0.0.1', 1, 0);
+
+-- ===========================
+-- RBAC 角色与权限扩展示例
+-- ===========================
+
+-- 作者角色（如已存在 author，则只更新名称等）
+INSERT INTO sys_role (role_code, role_name, description, sort_order, status)
+VALUES ('author', '作者', '作者角色，只能管理自己的文章和评论', 2, 1)
+ON DUPLICATE KEY UPDATE
+  role_name  = VALUES(role_name),
+  description= VALUES(description),
+  sort_order = VALUES(sort_order),
+  status     = VALUES(status);
+
+-- 文章、评论相关基础权限（若已存在相同 permission_code 则更新）
+INSERT INTO sys_permission (parent_id, permission_code, permission_name, permission_type, path, component, icon, sort_order, status)
+VALUES
+  (0, 'article:view:all',  '查看所有文章',        'button', '/admin/article/page',  NULL, NULL, 10, 1),
+  (0, 'article:view:self', '查看自己文章',        'button', '/admin/article/page',  NULL, NULL, 20, 1),
+  (0, 'comment:view:all',  '查看所有评论',        'button', '/admin/comment/page', NULL, NULL, 30, 1),
+  (0, 'comment:view:self', '查看自己文章评论',    'button', '/admin/comment/page', NULL, NULL, 40, 1)
+ON DUPLICATE KEY UPDATE
+  permission_name = VALUES(permission_name),
+  permission_type = VALUES(permission_type),
+  path            = VALUES(path),
+  sort_order      = VALUES(sort_order),
+  status          = VALUES(status);
+
+-- 为管理员角色绑定“查看所有文章/评论”权限
+INSERT IGNORE INTO sys_role_permission (role_id, permission_id)
+SELECT r.id, p.id
+FROM sys_role r
+JOIN sys_permission p ON p.permission_code IN ('article:view:all', 'comment:view:all')
+WHERE r.role_code = 'admin';
+
+-- 为作者角色绑定“只看自己文章/评论”权限
+INSERT IGNORE INTO sys_role_permission (role_id, permission_id)
+SELECT r.id, p.id
+FROM sys_role r
+JOIN sys_permission p ON p.permission_code IN ('article:view:self', 'comment:view:self')
+WHERE r.role_code = 'author';
+

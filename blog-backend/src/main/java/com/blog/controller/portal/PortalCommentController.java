@@ -2,6 +2,7 @@ package com.blog.controller.portal;
 
 import cn.dev33.satoken.stp.StpUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.blog.annotation.Idempotent;
 import com.blog.common.Result;
 import com.blog.model.entity.Comment;
 import com.blog.mapper.CommentMapper;
@@ -40,6 +41,7 @@ public class PortalCommentController {
 
     @Operation(summary = "发表评论")
     @PostMapping("/submit")
+    @Idempotent(expireSeconds = 5)
     public Result<Comment> submit(@RequestBody Map<String, Object> body) {
         Object articleIdObj = body.get("articleId");
         Object contentObj = body.get("content");
