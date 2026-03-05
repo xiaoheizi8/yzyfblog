@@ -43,7 +43,7 @@
 <script setup lang="ts">
 // @ts-nocheck
 import { ref, onMounted } from 'vue'
-import request from '@/utils/request'
+import request, { BASE_URL } from '@/utils/request'
 
 const list = ref<any[]>([])
 
@@ -54,7 +54,14 @@ function loadRanking() {
     data: { limit: 20 },
     success(res) {
       const data = res.data?.data || res.data
-      list.value = data || []
+      const arr = (data || []).map((item: any) => {
+        const cloned = { ...item }
+        if (cloned.avatar && typeof cloned.avatar === 'string' && !cloned.avatar.startsWith('http')) {
+          cloned.avatar = `${BASE_URL}${cloned.avatar}`
+        }
+        return cloned
+      })
+      list.value = arr
     },
   })
 }
