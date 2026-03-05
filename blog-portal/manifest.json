@@ -1,0 +1,23 @@
+{
+    "name" : "博客门户",
+    "appid" : "__UNI__BLOG",
+    "description" : "博客门户 UniApp - 支持 H5/小程序",
+    "versionName" : "1.0.0",
+    "versionCode" : "100",
+    "h5" : {
+        "router" : {
+            "mode" : "hash"
+        },
+        "devServer" : {
+            "port" : 5175
+        },
+        "template" : "index.html"
+    },
+    "mp-weixin" : {
+        "appid" : "",
+        "setting" : {
+            "urlCheck" : false
+        }
+    },
+    "vueVersion" : "3"
+}

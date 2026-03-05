@@ -1,0 +1,6 @@
+# 仅选择环境：dev | prod（可通过 -Dspring.profiles.active=prod 或环境变量覆盖）
+spring:
+  application:
+    name: blog-backend
+  profiles:
+    active: dev

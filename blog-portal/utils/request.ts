@@ -1,0 +1,29 @@
+// 统一封装 uni.request，规范请求地址与头部
+// baseURL 指向后端本地地址：http://localhost:8080/api
+// 如果后端去掉 /api 前缀，这里改为 'http://localhost:8080' 即可
+export const BASE_URL = 'http://localhost:8080/api'
+
+export interface RequestOptions extends UniApp.RequestOptions {
+  skipAuth?: boolean
+}
+
+export default function request(options: RequestOptions) {
+  const opts: UniApp.RequestOptions = { ...options }
+
+  // 组装完整 URL（非 http 开头的认为是相对路径）
+  if (opts.url && !opts.url.startsWith('http')) {
+    const path = opts.url.startsWith('/') ? opts.url : `/${opts.url}`
+    opts.url = `${BASE_URL}${path}`
+  }
+
+  // 统一加上 Authorization 头（除非显式 skipAuth）
+  if (!options.skipAuth) {
+    const token = uni.getStorageSync('token')
+    if (token) {
+      opts.header = Object.assign({}, opts.header, { Authorization: token })
+    }
+  }
+
+  return uni.request(opts)
+}
+

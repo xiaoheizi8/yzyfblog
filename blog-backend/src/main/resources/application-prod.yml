@@ -1,0 +1,97 @@
+# ========== 生产环境配置 ==========
+# 敏感信息建议使用环境变量，例如：-Dspring.datasource.password=xxx
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${DB_URL:jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=true}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:}
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      database: ${REDIS_DATABASE:0}
+      password: ${REDIS_PASSWORD:}
+      lettuce:
+        pool:
+          max-active: 16
+          max-idle: 8
+          min-idle: 4
+  elasticsearch:
+    uris: ${ES_URIS:http://localhost:9200}
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 50MB
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+
+blog:
+  search-mode: ${BLOG_SEARCH_MODE:mysql}
+  upload-mode: ${BLOG_UPLOAD_MODE:local}
+  upload-path: ${BLOG_UPLOAD_PATH:D:/blog/uploads}
+  minio:
+    endpoint: ${MINIO_ENDPOINT:}
+    access-key: ${MINIO_ACCESS_KEY:}
+    secret-key: ${MINIO_SECRET_KEY:}
+    bucket: ${MINIO_BUCKET:blog}
+    domain: ${MINIO_DOMAIN:}
+  oauth2:
+    gitee:
+      client-id: ${GITEE_CLIENT_ID:}
+      client-secret: ${GITEE_CLIENT_SECRET:}
+    github:
+      client-id: ${GITHUB_CLIENT_ID:}
+      client-secret: ${GITHUB_CLIENT_SECRET:}
+
+sa-token:
+  token-name: Authorization
+  timeout: 2592000
+  active-timeout: -1
+  is-concurrent: true
+  is-share: true
+  token-style: uuid
+  is-log: false
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: com.blog.entity
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.blog.controller
+
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+
+logging:
+  level:
+    root: INFO
+    com.blog: INFO
+    com.baomidou.mybatisplus: WARN

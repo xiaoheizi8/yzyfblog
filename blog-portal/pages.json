@@ -1,0 +1,55 @@
+{
+  "pages": [
+    { "path": "pages/index/index", "style": { "navigationBarTitleText": "首页" } },
+    { "path": "pages/article/list", "style": { "navigationBarTitleText": "文章列表" } },
+    { "path": "pages/rank/index", "style": { "navigationBarTitleText": "风月币排行榜" } },
+    { "path": "pages/profile/index", "style": { "navigationBarTitleText": "我的" } },
+    { "path": "pages/article/detail", "style": { "navigationBarTitleText": "文章详情" } },
+    { "path": "pages/message/wall", "style": { "navigationBarTitleText": "留言弹幕墙" } },
+    { "path": "pages/chat/room", "style": { "navigationBarTitleText": "群聊" } },
+    { "path": "pages/auth/login", "style": { "navigationBarTitleText": "登录" } },
+    { "path": "pages/auth/register", "style": { "navigationBarTitleText": "注册" } },
+    { "path": "pages/article/edit", "style": { "navigationBarTitleText": "发布文章" } },
+    { "path": "pages/article/my", "style": { "navigationBarTitleText": "我的文章" } },
+    { "path": "pages/favorite/list", "style": { "navigationBarTitleText": "我的收藏" } },
+    { "path": "pages/profile/edit", "style": { "navigationBarTitleText": "编辑资料" } }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "风月博客",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#f5f5f5"
+  },
+  "tabBar": {
+    "color": "#888888",
+    "selectedColor": "#1890ff",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/home.svg",
+        "selectedIconPath": "static/home.svg"
+      },
+      {
+        "pagePath": "pages/article/list",
+        "text": "文章",
+        "iconPath": "static/posts.svg",
+        "selectedIconPath": "static/posts.svg"
+      },
+      {
+        "pagePath": "pages/rank/index",
+        "text": "排行榜",
+        "iconPath": "static/rank.svg",
+        "selectedIconPath": "static/rank.svg"
+      },
+      {
+        "pagePath": "pages/profile/index",
+        "text": "我的",
+        "iconPath": "static/profile.svg",
+        "selectedIconPath": "static/profile.svg"
+      }
+    ]
+  }
+}

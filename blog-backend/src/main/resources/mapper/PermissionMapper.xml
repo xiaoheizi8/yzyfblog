@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blog.mapper.PermissionMapper">
+    <select id="selectMenuTreeByRoleIds" resultType="com.blog.model.entity.Permission">
+        SELECT DISTINCT p.* FROM sys_permission p
+        INNER JOIN sys_role_permission rp ON p.id = rp.permission_id
+        WHERE rp.role_id IN
+        <foreach collection="roleIds" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+        AND p.deleted = 0 AND p.status = 1 AND p.permission_type = 'menu'
+        ORDER BY p.sort_order ASC, p.id ASC
+    </select>
+</mapper>
