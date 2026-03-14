@@ -1,7 +1,7 @@
 // 统一封装 uni.request，规范请求地址与头部
 // baseURL 指向后端本地地址：http://localhost:8080/api
 // 如果后端去掉 /api 前缀，这里改为 'http://localhost:8080' 即可
-export const BASE_URL = 'http://localhost:8080/api'
+export const BASE_URL = 'http://localhost:8081/api'
 
 export interface RequestOptions extends UniApp.RequestOptions {
   skipAuth?: boolean

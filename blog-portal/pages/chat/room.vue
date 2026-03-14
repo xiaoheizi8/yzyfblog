@@ -129,6 +129,8 @@ function send() {
       },
     })
   }
+  
+  console.log( messages.value)
 }
 
 onMounted(() => {

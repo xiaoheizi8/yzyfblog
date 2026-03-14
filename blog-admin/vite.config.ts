@@ -11,7 +11,7 @@ export default defineConfig({
     // 管理端开发端口：4000
     port: 4000,
     proxy: {
-      '/api': { target: 'http://localhost:8080', changeOrigin: true },
+      '/api': { target: 'http://localhost:8081', changeOrigin: true },
     },
   },
 })

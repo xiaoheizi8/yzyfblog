@@ -3,4 +3,4 @@ spring:
   application:
     name: blog-backend
   profiles:
-    active: dev
+    active: prod

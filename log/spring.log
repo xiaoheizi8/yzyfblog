@@ -1,486 +1,490 @@
-2026-03-05T17:33:24.264+08:00  INFO 17660 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Starting BlogApplication using Java 17.0.12 with PID 17660 (D:\workspace-cursor\blog\blog-backend\target\classes started by 一朝风月 in D:\workspace-cursor\blog)
-2026-03-05T17:33:24.265+08:00 DEBUG 17660 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Running with Spring Boot v3.2.5, Spring v6.1.6
-2026-03-05T17:33:24.266+08:00  INFO 17660 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : The following 1 profile is active: "dev"
-2026-03-05T17:33:24.304+08:00  INFO 17660 --- [blog-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-03-05T17:33:24.305+08:00  INFO 17660 --- [blog-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-03-05T17:33:26.490+08:00  INFO 17660 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T17:33:26.491+08:00  INFO 17660 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
-2026-03-05T17:33:26.507+08:00  INFO 17660 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Elasticsearch repository interfaces.
-2026-03-05T17:33:26.510+08:00  INFO 17660 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T17:33:26.510+08:00  INFO 17660 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
-2026-03-05T17:33:26.514+08:00  INFO 17660 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 Reactive Elasticsearch repository interfaces.
-2026-03-05T17:33:26.522+08:00  INFO 17660 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T17:33:26.523+08:00  INFO 17660 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-03-05T17:33:26.530+08:00  INFO 17660 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
-2026-03-05T17:33:27.599+08:00  INFO 17660 --- [blog-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2026-03-05T17:33:27.608+08:00  INFO 17660 --- [blog-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-03-05T17:33:27.608+08:00  INFO 17660 --- [blog-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2026-03-05T17:33:27.722+08:00  INFO 17660 --- [blog-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2026-03-05T17:33:27.722+08:00  INFO 17660 --- [blog-backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3417 ms
-2026-03-05T17:33:28.531+08:00 DEBUG 17660 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\ArticleMapper.xml]'
-2026-03-05T17:33:28.548+08:00 DEBUG 17660 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\CommentMapper.xml]'
-2026-03-05T17:33:28.558+08:00 DEBUG 17660 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\PermissionMapper.xml]'
-2026-03-05T17:33:28.571+08:00 DEBUG 17660 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserMapper.xml]'
-2026-03-05T17:33:28.582+08:00 DEBUG 17660 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserRoleMapper.xml]'
-2026-03-05T17:33:29.996+08:00  INFO 17660 --- [blog-backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2026-03-05T17:33:30.183+08:00  INFO 17660 --- [blog-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/api'
-2026-03-05T17:33:30.198+08:00  INFO 17660 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Started BlogApplication in 6.576 seconds (process running for 15.153)
-2026-03-05T17:33:30.202+08:00 DEBUG 17660 --- [blog-backend] [restartedMain] c.b.m.a.DdlApplicationRunner             :   ...  DDL start create  ...  
-2026-03-05T17:33:30.203+08:00 DEBUG 17660 --- [blog-backend] [restartedMain] c.b.m.a.DdlApplicationRunner             :   ...  DDL end create  ...  
-2026-03-05T17:34:53.741+08:00  INFO 17660 --- [blog-backend] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-03-05T17:34:53.742+08:00  INFO 17660 --- [blog-backend] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-03-05T17:34:53.743+08:00  INFO 17660 --- [blog-backend] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2026-03-05T17:34:55.164+08:00  INFO 17660 --- [blog-backend] [http-nio-8080-exec-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-03-05T17:34:55.678+08:00  INFO 17660 --- [blog-backend] [http-nio-8080-exec-8] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@40dc5d6b
-2026-03-05T17:34:55.679+08:00  INFO 17660 --- [blog-backend] [http-nio-8080-exec-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-03-05T17:37:58.940+08:00  WARN 17660 --- [blog-backend] [http-nio-8080-exec-8] c.blog.exception.GlobalExceptionHandler  : 业务异常: 未能读取到有效 token
-2026-03-05T17:37:58.941+08:00  WARN 17660 --- [blog-backend] [http-nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [cn.dev33.satoken.exception.NotLoginException: 未能读取到有效 token]
-2026-03-05T17:40:07.214+08:00 DEBUG 17660 --- [blog-backend] [http-nio-8080-exec-2] c.blog.websocket.BlogWebSocketHandler    : WebSocket 连接: 95dd5bab-6388-32f4-2bcc-45d71f0f46e8
-2026-03-05T17:40:22.716+08:00 DEBUG 17660 --- [blog-backend] [http-nio-8080-exec-10] c.blog.websocket.BlogWebSocketHandler    : WebSocket 连接: 51ba8ba8-f4a1-73cd-4109-163168759e38
-2026-03-05T17:41:44.571+08:00 DEBUG 17660 --- [blog-backend] [http-nio-8080-exec-6] c.blog.websocket.BlogWebSocketHandler    : WebSocket 连接: 1e878db7-dd4e-0bcf-0b58-d0f1dd56dd25
-2026-03-05T17:41:51.044+08:00 DEBUG 17660 --- [blog-backend] [http-nio-8080-exec-3] c.blog.websocket.BlogWebSocketHandler    : WebSocket 连接: ab580c1e-d98c-9b8f-5590-5611f188ee3c
-2026-03-05T17:41:56.647+08:00 DEBUG 17660 --- [blog-backend] [http-nio-8080-exec-10] c.blog.websocket.BlogWebSocketHandler    : WebSocket 连接: 8c260b01-bdec-e2ec-728e-6bd82e52cd5a
-2026-03-05T17:42:52.972+08:00 DEBUG 17660 --- [blog-backend] [http-nio-8080-exec-5] c.blog.websocket.BlogWebSocketHandler    : WebSocket 连接: 500cbd47-0040-b842-70ac-70d559bd05f0
-2026-03-05T17:43:31.370+08:00 DEBUG 17660 --- [blog-backend] [http-nio-8080-exec-2] c.blog.websocket.BlogWebSocketHandler    : WebSocket 连接: d2077867-7e1a-d5a5-8c1a-e56dd37a5580
-2026-03-05T17:43:32.029+08:00 DEBUG 17660 --- [blog-backend] [http-nio-8080-exec-3] c.blog.websocket.BlogWebSocketHandler    : WebSocket 连接: cfc8e4c5-782c-205b-e8ca-9de941f42e09
-2026-03-05T17:43:37.036+08:00 DEBUG 17660 --- [blog-backend] [http-nio-8080-exec-10] c.blog.websocket.BlogWebSocketHandler    : WebSocket 连接: b965a375-dfb8-b4af-7be4-e3206f76e710
-2026-03-05T17:44:34.314+08:00  WARN 17660 --- [blog-backend] [http-nio-8080-exec-6] c.blog.exception.GlobalExceptionHandler  : 业务异常: 密码错误
-2026-03-05T17:44:34.315+08:00  WARN 17660 --- [blog-backend] [http-nio-8080-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.RuntimeException: 密码错误]
-2026-03-05T17:44:41.269+08:00  WARN 17660 --- [blog-backend] [http-nio-8080-exec-2] c.blog.exception.GlobalExceptionHandler  : 业务异常: Could not read JSON:Could not resolve type id 'com.blog.entity.User' as a subtype of `java.lang.Object`: no such class found
- at [Source: (byte[])"{"@class":"cn.dev33.satoken.dao.SaSessionForJacksonCustomized","id":"Authorization:login:session:1","type":"Account-Session","loginType":"login","loginId":["java.lang.Long",1],"token":null,"createTime":1772633909381,"dataMap":{"@class":"java.util.concurrent.ConcurrentHashMap","user":{"@class":"com.blog.entity.User","id":1,"username":"admin","password":null,"nickname":"管理员","avatar":null,"email":null,"phone":null,"oauthSource":null,"oauthId":null,"status":1,"createTime":"2026-03-04 16:25:11"[truncated 222 bytes]; line: 1, column: 295] (through reference chain: cn.dev33.satoken.dao.SaSessionForJacksonCustomized["dataMap"]->java.util.concurrent.ConcurrentHashMap["user"]) 
-2026-03-05T17:44:41.271+08:00  WARN 17660 --- [blog-backend] [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.data.redis.serializer.SerializationException: Could not read JSON:Could not resolve type id 'com.blog.entity.User' as a subtype of `java.lang.Object`: no such class found<EOL> at [Source: (byte[])"{"@class":"cn.dev33.satoken.dao.SaSessionForJacksonCustomized","id":"Authorization:login:session:1","type":"Account-Session","loginType":"login","loginId":["java.lang.Long",1],"token":null,"createTime":1772633909381,"dataMap":{"@class":"java.util.concurrent.ConcurrentHashMap","user":{"@class":"com.blog.entity.User","id":1,"username":"admin","password":null,"nickname":"管理员","avatar":null,"email":null,"phone":null,"oauthSource":null,"oauthId":null,"status":1,"createTime":"2026-03-04 16:25:11"[truncated 222 bytes]; line: 1, column: 295] (through reference chain: cn.dev33.satoken.dao.SaSessionForJacksonCustomized["dataMap"]->java.util.concurrent.ConcurrentHashMap["user"]) ]
-2026-03-05T17:46:41.746+08:00  WARN 17660 --- [blog-backend] [http-nio-8080-exec-8] c.blog.exception.GlobalExceptionHandler  : 业务异常: 用户不存在
-2026-03-05T17:46:41.747+08:00  WARN 17660 --- [blog-backend] [http-nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.RuntimeException: 用户不存在]
-2026-03-05T17:46:47.623+08:00  WARN 17660 --- [blog-backend] [http-nio-8080-exec-10] c.blog.exception.GlobalExceptionHandler  : 业务异常: 用户不存在
-2026-03-05T17:46:47.624+08:00  WARN 17660 --- [blog-backend] [http-nio-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.RuntimeException: 用户不存在]
-2026-03-05T17:47:26.564+08:00  WARN 17660 --- [blog-backend] [http-nio-8080-exec-7] c.blog.exception.GlobalExceptionHandler  : 业务异常: Could not read JSON:Could not resolve type id 'com.blog.entity.User' as a subtype of `java.lang.Object`: no such class found
- at [Source: (byte[])"{"@class":"cn.dev33.satoken.dao.SaSessionForJacksonCustomized","id":"Authorization:login:session:1","type":"Account-Session","loginType":"login","loginId":["java.lang.Long",1],"token":null,"createTime":1772633909381,"dataMap":{"@class":"java.util.concurrent.ConcurrentHashMap","user":{"@class":"com.blog.entity.User","id":1,"username":"admin","password":null,"nickname":"管理员","avatar":null,"email":null,"phone":null,"oauthSource":null,"oauthId":null,"status":1,"createTime":"2026-03-04 16:25:11"[truncated 222 bytes]; line: 1, column: 295] (through reference chain: cn.dev33.satoken.dao.SaSessionForJacksonCustomized["dataMap"]->java.util.concurrent.ConcurrentHashMap["user"]) 
-2026-03-05T17:47:26.565+08:00  WARN 17660 --- [blog-backend] [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.data.redis.serializer.SerializationException: Could not read JSON:Could not resolve type id 'com.blog.entity.User' as a subtype of `java.lang.Object`: no such class found<EOL> at [Source: (byte[])"{"@class":"cn.dev33.satoken.dao.SaSessionForJacksonCustomized","id":"Authorization:login:session:1","type":"Account-Session","loginType":"login","loginId":["java.lang.Long",1],"token":null,"createTime":1772633909381,"dataMap":{"@class":"java.util.concurrent.ConcurrentHashMap","user":{"@class":"com.blog.entity.User","id":1,"username":"admin","password":null,"nickname":"管理员","avatar":null,"email":null,"phone":null,"oauthSource":null,"oauthId":null,"status":1,"createTime":"2026-03-04 16:25:11"[truncated 222 bytes]; line: 1, column: 295] (through reference chain: cn.dev33.satoken.dao.SaSessionForJacksonCustomized["dataMap"]->java.util.concurrent.ConcurrentHashMap["user"]) ]
-2026-03-05T17:47:27.297+08:00  WARN 17660 --- [blog-backend] [http-nio-8080-exec-9] c.blog.exception.GlobalExceptionHandler  : 业务异常: Could not read JSON:Could not resolve type id 'com.blog.entity.User' as a subtype of `java.lang.Object`: no such class found
- at [Source: (byte[])"{"@class":"cn.dev33.satoken.dao.SaSessionForJacksonCustomized","id":"Authorization:login:session:1","type":"Account-Session","loginType":"login","loginId":["java.lang.Long",1],"token":null,"createTime":1772633909381,"dataMap":{"@class":"java.util.concurrent.ConcurrentHashMap","user":{"@class":"com.blog.entity.User","id":1,"username":"admin","password":null,"nickname":"管理员","avatar":null,"email":null,"phone":null,"oauthSource":null,"oauthId":null,"status":1,"createTime":"2026-03-04 16:25:11"[truncated 222 bytes]; line: 1, column: 295] (through reference chain: cn.dev33.satoken.dao.SaSessionForJacksonCustomized["dataMap"]->java.util.concurrent.ConcurrentHashMap["user"]) 
-2026-03-05T17:47:27.298+08:00  WARN 17660 --- [blog-backend] [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.data.redis.serializer.SerializationException: Could not read JSON:Could not resolve type id 'com.blog.entity.User' as a subtype of `java.lang.Object`: no such class found<EOL> at [Source: (byte[])"{"@class":"cn.dev33.satoken.dao.SaSessionForJacksonCustomized","id":"Authorization:login:session:1","type":"Account-Session","loginType":"login","loginId":["java.lang.Long",1],"token":null,"createTime":1772633909381,"dataMap":{"@class":"java.util.concurrent.ConcurrentHashMap","user":{"@class":"com.blog.entity.User","id":1,"username":"admin","password":null,"nickname":"管理员","avatar":null,"email":null,"phone":null,"oauthSource":null,"oauthId":null,"status":1,"createTime":"2026-03-04 16:25:11"[truncated 222 bytes]; line: 1, column: 295] (through reference chain: cn.dev33.satoken.dao.SaSessionForJacksonCustomized["dataMap"]->java.util.concurrent.ConcurrentHashMap["user"]) ]
-2026-03-05T17:47:27.467+08:00  WARN 17660 --- [blog-backend] [http-nio-8080-exec-5] c.blog.exception.GlobalExceptionHandler  : 业务异常: Could not read JSON:Could not resolve type id 'com.blog.entity.User' as a subtype of `java.lang.Object`: no such class found
- at [Source: (byte[])"{"@class":"cn.dev33.satoken.dao.SaSessionForJacksonCustomized","id":"Authorization:login:session:1","type":"Account-Session","loginType":"login","loginId":["java.lang.Long",1],"token":null,"createTime":1772633909381,"dataMap":{"@class":"java.util.concurrent.ConcurrentHashMap","user":{"@class":"com.blog.entity.User","id":1,"username":"admin","password":null,"nickname":"管理员","avatar":null,"email":null,"phone":null,"oauthSource":null,"oauthId":null,"status":1,"createTime":"2026-03-04 16:25:11"[truncated 222 bytes]; line: 1, column: 295] (through reference chain: cn.dev33.satoken.dao.SaSessionForJacksonCustomized["dataMap"]->java.util.concurrent.ConcurrentHashMap["user"]) 
-2026-03-05T17:47:27.469+08:00  WARN 17660 --- [blog-backend] [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.data.redis.serializer.SerializationException: Could not read JSON:Could not resolve type id 'com.blog.entity.User' as a subtype of `java.lang.Object`: no such class found<EOL> at [Source: (byte[])"{"@class":"cn.dev33.satoken.dao.SaSessionForJacksonCustomized","id":"Authorization:login:session:1","type":"Account-Session","loginType":"login","loginId":["java.lang.Long",1],"token":null,"createTime":1772633909381,"dataMap":{"@class":"java.util.concurrent.ConcurrentHashMap","user":{"@class":"com.blog.entity.User","id":1,"username":"admin","password":null,"nickname":"管理员","avatar":null,"email":null,"phone":null,"oauthSource":null,"oauthId":null,"status":1,"createTime":"2026-03-04 16:25:11"[truncated 222 bytes]; line: 1, column: 295] (through reference chain: cn.dev33.satoken.dao.SaSessionForJacksonCustomized["dataMap"]->java.util.concurrent.ConcurrentHashMap["user"]) ]
-2026-03-05T17:47:36.051+08:00  WARN 17660 --- [blog-backend] [http-nio-8080-exec-1] c.blog.exception.GlobalExceptionHandler  : 业务异常: Could not read JSON:Could not resolve type id 'com.blog.entity.User' as a subtype of `java.lang.Object`: no such class found
- at [Source: (byte[])"{"@class":"cn.dev33.satoken.dao.SaSessionForJacksonCustomized","id":"Authorization:login:session:1","type":"Account-Session","loginType":"login","loginId":["java.lang.Long",1],"token":null,"createTime":1772633909381,"dataMap":{"@class":"java.util.concurrent.ConcurrentHashMap","user":{"@class":"com.blog.entity.User","id":1,"username":"admin","password":null,"nickname":"管理员","avatar":null,"email":null,"phone":null,"oauthSource":null,"oauthId":null,"status":1,"createTime":"2026-03-04 16:25:11"[truncated 222 bytes]; line: 1, column: 295] (through reference chain: cn.dev33.satoken.dao.SaSessionForJacksonCustomized["dataMap"]->java.util.concurrent.ConcurrentHashMap["user"]) 
-2026-03-05T17:47:36.052+08:00  WARN 17660 --- [blog-backend] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.data.redis.serializer.SerializationException: Could not read JSON:Could not resolve type id 'com.blog.entity.User' as a subtype of `java.lang.Object`: no such class found<EOL> at [Source: (byte[])"{"@class":"cn.dev33.satoken.dao.SaSessionForJacksonCustomized","id":"Authorization:login:session:1","type":"Account-Session","loginType":"login","loginId":["java.lang.Long",1],"token":null,"createTime":1772633909381,"dataMap":{"@class":"java.util.concurrent.ConcurrentHashMap","user":{"@class":"com.blog.entity.User","id":1,"username":"admin","password":null,"nickname":"管理员","avatar":null,"email":null,"phone":null,"oauthSource":null,"oauthId":null,"status":1,"createTime":"2026-03-04 16:25:11"[truncated 222 bytes]; line: 1, column: 295] (through reference chain: cn.dev33.satoken.dao.SaSessionForJacksonCustomized["dataMap"]->java.util.concurrent.ConcurrentHashMap["user"]) ]
-2026-03-05T17:48:40.160+08:00  INFO 17660 --- [blog-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-03-05T17:48:40.213+08:00  INFO 17660 --- [blog-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2026-03-05T17:48:43.011+08:00  INFO 12404 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Starting BlogApplication using Java 17.0.12 with PID 12404 (D:\workspace-cursor\blog\blog-backend\target\classes started by 一朝风月 in D:\workspace-cursor\blog)
-2026-03-05T17:48:43.012+08:00 DEBUG 12404 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Running with Spring Boot v3.2.5, Spring v6.1.6
-2026-03-05T17:48:43.012+08:00  INFO 12404 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : The following 1 profile is active: "dev"
-2026-03-05T17:48:43.064+08:00  INFO 12404 --- [blog-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-03-05T17:48:43.064+08:00  INFO 12404 --- [blog-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-03-05T17:48:44.093+08:00  INFO 12404 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T17:48:44.095+08:00  INFO 12404 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
-2026-03-05T17:48:44.112+08:00  INFO 12404 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Elasticsearch repository interfaces.
-2026-03-05T17:48:44.116+08:00  INFO 12404 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T17:48:44.117+08:00  INFO 12404 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
-2026-03-05T17:48:44.119+08:00  INFO 12404 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 Reactive Elasticsearch repository interfaces.
-2026-03-05T17:48:44.126+08:00  INFO 12404 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T17:48:44.127+08:00  INFO 12404 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-03-05T17:48:44.136+08:00  INFO 12404 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
-2026-03-05T17:48:45.027+08:00  INFO 12404 --- [blog-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2026-03-05T17:48:45.039+08:00  INFO 12404 --- [blog-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-03-05T17:48:45.040+08:00  INFO 12404 --- [blog-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2026-03-05T17:48:45.102+08:00  INFO 12404 --- [blog-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2026-03-05T17:48:45.103+08:00  INFO 12404 --- [blog-backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2037 ms
-2026-03-05T17:48:45.861+08:00 DEBUG 12404 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\ArticleMapper.xml]'
-2026-03-05T17:48:45.886+08:00 DEBUG 12404 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\CommentMapper.xml]'
-2026-03-05T17:48:45.907+08:00 DEBUG 12404 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\PermissionMapper.xml]'
-2026-03-05T17:48:45.926+08:00 DEBUG 12404 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserMapper.xml]'
-2026-03-05T17:48:45.938+08:00 DEBUG 12404 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserRoleMapper.xml]'
-2026-03-05T17:48:47.487+08:00  INFO 12404 --- [blog-backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2026-03-05T17:48:47.734+08:00  INFO 12404 --- [blog-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/api'
-2026-03-05T17:48:47.745+08:00  INFO 12404 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Started BlogApplication in 5.119 seconds (process running for 5.765)
-2026-03-05T17:48:47.749+08:00 DEBUG 12404 --- [blog-backend] [restartedMain] c.b.m.a.DdlApplicationRunner             :   ...  DDL start create  ...  
-2026-03-05T17:48:47.749+08:00 DEBUG 12404 --- [blog-backend] [restartedMain] c.b.m.a.DdlApplicationRunner             :   ...  DDL end create  ...  
-2026-03-05T17:48:54.369+08:00  INFO 12404 --- [blog-backend] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-03-05T17:48:54.369+08:00  INFO 12404 --- [blog-backend] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-03-05T17:48:54.370+08:00  INFO 12404 --- [blog-backend] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2026-03-05T17:48:54.495+08:00  INFO 12404 --- [blog-backend] [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-03-05T17:48:54.670+08:00  INFO 12404 --- [blog-backend] [http-nio-8080-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2f68675f
-2026-03-05T17:48:54.672+08:00  INFO 12404 --- [blog-backend] [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-03-05T17:48:55.229+08:00  WARN 12404 --- [blog-backend] [http-nio-8080-exec-1] c.blog.exception.GlobalExceptionHandler  : 业务异常: Could not read JSON:Could not resolve type id 'com.blog.entity.User' as a subtype of `java.lang.Object`: no such class found
- at [Source: (byte[])"{"@class":"cn.dev33.satoken.dao.SaSessionForJacksonCustomized","id":"Authorization:login:session:1","type":"Account-Session","loginType":"login","loginId":["java.lang.Long",1],"token":null,"createTime":1772633909381,"dataMap":{"@class":"java.util.concurrent.ConcurrentHashMap","user":{"@class":"com.blog.entity.User","id":1,"username":"admin","password":null,"nickname":"管理员","avatar":null,"email":null,"phone":null,"oauthSource":null,"oauthId":null,"status":1,"createTime":"2026-03-04 16:25:11"[truncated 222 bytes]; line: 1, column: 295] (through reference chain: cn.dev33.satoken.dao.SaSessionForJacksonCustomized["dataMap"]->java.util.concurrent.ConcurrentHashMap["user"]) 
-2026-03-05T17:48:55.256+08:00  WARN 12404 --- [blog-backend] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.data.redis.serializer.SerializationException: Could not read JSON:Could not resolve type id 'com.blog.entity.User' as a subtype of `java.lang.Object`: no such class found<EOL> at [Source: (byte[])"{"@class":"cn.dev33.satoken.dao.SaSessionForJacksonCustomized","id":"Authorization:login:session:1","type":"Account-Session","loginType":"login","loginId":["java.lang.Long",1],"token":null,"createTime":1772633909381,"dataMap":{"@class":"java.util.concurrent.ConcurrentHashMap","user":{"@class":"com.blog.entity.User","id":1,"username":"admin","password":null,"nickname":"管理员","avatar":null,"email":null,"phone":null,"oauthSource":null,"oauthId":null,"status":1,"createTime":"2026-03-04 16:25:11"[truncated 222 bytes]; line: 1, column: 295] (through reference chain: cn.dev33.satoken.dao.SaSessionForJacksonCustomized["dataMap"]->java.util.concurrent.ConcurrentHashMap["user"]) ]
-2026-03-05T17:50:05.379+08:00  INFO 12404 --- [blog-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-03-05T17:50:05.382+08:00  INFO 12404 --- [blog-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2026-03-05T17:50:08.077+08:00  INFO 5320 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Starting BlogApplication using Java 17.0.12 with PID 5320 (D:\workspace-cursor\blog\blog-backend\target\classes started by 一朝风月 in D:\workspace-cursor\blog)
-2026-03-05T17:50:08.078+08:00 DEBUG 5320 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Running with Spring Boot v3.2.5, Spring v6.1.6
-2026-03-05T17:50:08.078+08:00  INFO 5320 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : The following 1 profile is active: "dev"
-2026-03-05T17:50:08.110+08:00  INFO 5320 --- [blog-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-03-05T17:50:08.110+08:00  INFO 5320 --- [blog-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-03-05T17:50:08.644+08:00  INFO 5320 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T17:50:08.645+08:00  INFO 5320 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
-2026-03-05T17:50:08.660+08:00  INFO 5320 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 Elasticsearch repository interfaces.
-2026-03-05T17:50:08.663+08:00  INFO 5320 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T17:50:08.663+08:00  INFO 5320 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
-2026-03-05T17:50:08.666+08:00  INFO 5320 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 Reactive Elasticsearch repository interfaces.
-2026-03-05T17:50:08.672+08:00  INFO 5320 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T17:50:08.673+08:00  INFO 5320 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-03-05T17:50:08.679+08:00  INFO 5320 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
-2026-03-05T17:50:09.213+08:00  INFO 5320 --- [blog-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2026-03-05T17:50:09.224+08:00  INFO 5320 --- [blog-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-03-05T17:50:09.224+08:00  INFO 5320 --- [blog-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2026-03-05T17:50:09.256+08:00  INFO 5320 --- [blog-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2026-03-05T17:50:09.256+08:00  INFO 5320 --- [blog-backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1146 ms
-2026-03-05T17:50:09.593+08:00 DEBUG 5320 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\ArticleMapper.xml]'
-2026-03-05T17:50:09.607+08:00 DEBUG 5320 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\CommentMapper.xml]'
-2026-03-05T17:50:09.619+08:00 DEBUG 5320 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\PermissionMapper.xml]'
-2026-03-05T17:50:09.629+08:00 DEBUG 5320 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserMapper.xml]'
-2026-03-05T17:50:09.637+08:00 DEBUG 5320 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserRoleMapper.xml]'
-2026-03-05T17:50:10.393+08:00  INFO 5320 --- [blog-backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2026-03-05T17:50:10.528+08:00  INFO 5320 --- [blog-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/api'
-2026-03-05T17:50:10.537+08:00  INFO 5320 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Started BlogApplication in 2.722 seconds (process running for 3.103)
-2026-03-05T17:50:10.539+08:00 DEBUG 5320 --- [blog-backend] [restartedMain] c.b.m.a.DdlApplicationRunner             :   ...  DDL start create  ...  
-2026-03-05T17:50:10.539+08:00 DEBUG 5320 --- [blog-backend] [restartedMain] c.b.m.a.DdlApplicationRunner             :   ...  DDL end create  ...  
-2026-03-05T17:50:41.086+08:00  INFO 5320 --- [blog-backend] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-03-05T17:50:41.087+08:00  INFO 5320 --- [blog-backend] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-03-05T17:50:41.089+08:00  INFO 5320 --- [blog-backend] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2026-03-05T17:50:41.175+08:00  INFO 5320 --- [blog-backend] [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-03-05T17:50:41.278+08:00  INFO 5320 --- [blog-backend] [http-nio-8080-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@51af3a54
-2026-03-05T17:50:41.279+08:00  INFO 5320 --- [blog-backend] [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-03-05T17:51:47.491+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-8] c.blog.exception.GlobalExceptionHandler  : 业务异常: token 无效：cc1ca05d-e049-4e3f-a6bc-7defadca56dc
-2026-03-05T17:51:47.493+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [cn.dev33.satoken.exception.NotLoginException: token 无效：cc1ca05d-e049-4e3f-a6bc-7defadca56dc]
-2026-03-05T17:51:47.501+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-6] c.blog.exception.GlobalExceptionHandler  : 业务异常: token 无效：cc1ca05d-e049-4e3f-a6bc-7defadca56dc
-2026-03-05T17:51:47.502+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [cn.dev33.satoken.exception.NotLoginException: token 无效：cc1ca05d-e049-4e3f-a6bc-7defadca56dc]
-2026-03-05T17:52:34.617+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-9] c.blog.exception.GlobalExceptionHandler  : 业务异常: token 无效：cc1ca05d-e049-4e3f-a6bc-7defadca56dc
-2026-03-05T17:52:34.618+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [cn.dev33.satoken.exception.NotLoginException: token 无效：cc1ca05d-e049-4e3f-a6bc-7defadca56dc]
-2026-03-05T17:52:36.130+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-7] c.blog.exception.GlobalExceptionHandler  : 业务异常: token 无效：cc1ca05d-e049-4e3f-a6bc-7defadca56dc
-2026-03-05T17:52:36.132+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [cn.dev33.satoken.exception.NotLoginException: token 无效：cc1ca05d-e049-4e3f-a6bc-7defadca56dc]
-2026-03-05T17:52:36.137+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-3] c.blog.exception.GlobalExceptionHandler  : 业务异常: token 无效：cc1ca05d-e049-4e3f-a6bc-7defadca56dc
-2026-03-05T17:52:36.138+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [cn.dev33.satoken.exception.NotLoginException: token 无效：cc1ca05d-e049-4e3f-a6bc-7defadca56dc]
-2026-03-05T17:58:42.501+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-8] c.blog.exception.GlobalExceptionHandler  : 业务异常: token 无效：cc1ca05d-e049-4e3f-a6bc-7defadca56dc
-2026-03-05T17:58:42.503+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [cn.dev33.satoken.exception.NotLoginException: token 无效：cc1ca05d-e049-4e3f-a6bc-7defadca56dc]
-2026-03-05T17:58:42.507+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-6] c.blog.exception.GlobalExceptionHandler  : 业务异常: token 无效：cc1ca05d-e049-4e3f-a6bc-7defadca56dc
-2026-03-05T17:58:42.508+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [cn.dev33.satoken.exception.NotLoginException: token 无效：cc1ca05d-e049-4e3f-a6bc-7defadca56dc]
-2026-03-05T17:58:43.527+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-10] c.blog.exception.GlobalExceptionHandler  : 业务异常: token 无效：cc1ca05d-e049-4e3f-a6bc-7defadca56dc
-2026-03-05T17:58:43.528+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [cn.dev33.satoken.exception.NotLoginException: token 无效：cc1ca05d-e049-4e3f-a6bc-7defadca56dc]
-2026-03-05T17:58:43.535+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-1] c.blog.exception.GlobalExceptionHandler  : 业务异常: token 无效：cc1ca05d-e049-4e3f-a6bc-7defadca56dc
-2026-03-05T17:58:43.536+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [cn.dev33.satoken.exception.NotLoginException: token 无效：cc1ca05d-e049-4e3f-a6bc-7defadca56dc]
-2026-03-05T18:02:32.271+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-8] c.blog.exception.GlobalExceptionHandler  : 业务异常: token 无效：90e2e09e-86c5-4ac7-b20a-1f937e9d6a98
-2026-03-05T18:02:32.272+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [cn.dev33.satoken.exception.NotLoginException: token 无效：90e2e09e-86c5-4ac7-b20a-1f937e9d6a98]
-2026-03-05T18:02:37.367+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-9] c.blog.exception.GlobalExceptionHandler  : 业务异常: token 无效：90e2e09e-86c5-4ac7-b20a-1f937e9d6a98
-2026-03-05T18:02:37.368+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [cn.dev33.satoken.exception.NotLoginException: token 无效：90e2e09e-86c5-4ac7-b20a-1f937e9d6a98]
-2026-03-05T18:02:37.373+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-7] c.blog.exception.GlobalExceptionHandler  : 业务异常: token 无效：90e2e09e-86c5-4ac7-b20a-1f937e9d6a98
-2026-03-05T18:02:37.373+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [cn.dev33.satoken.exception.NotLoginException: token 无效：90e2e09e-86c5-4ac7-b20a-1f937e9d6a98]
-2026-03-05T18:02:39.887+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-3] c.blog.exception.GlobalExceptionHandler  : 业务异常: token 无效：90e2e09e-86c5-4ac7-b20a-1f937e9d6a98
-2026-03-05T18:02:39.889+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [cn.dev33.satoken.exception.NotLoginException: token 无效：90e2e09e-86c5-4ac7-b20a-1f937e9d6a98]
-2026-03-05T18:02:39.897+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-2] c.blog.exception.GlobalExceptionHandler  : 业务异常: token 无效：90e2e09e-86c5-4ac7-b20a-1f937e9d6a98
-2026-03-05T18:02:39.900+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [cn.dev33.satoken.exception.NotLoginException: token 无效：90e2e09e-86c5-4ac7-b20a-1f937e9d6a98]
-2026-03-05T18:19:29.870+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-3] c.blog.exception.GlobalExceptionHandler  : 业务异常: Redis command timed out
-2026-03-05T18:19:29.870+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-1] c.blog.exception.GlobalExceptionHandler  : 业务异常: Redis command timed out
-2026-03-05T18:19:29.871+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-10] c.blog.exception.GlobalExceptionHandler  : 业务异常: Redis command timed out
-2026-03-05T18:19:29.870+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-5] c.blog.exception.GlobalExceptionHandler  : 业务异常: Redis command timed out
-2026-03-05T18:19:29.871+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.QueryTimeoutException: Redis command timed out]
-2026-03-05T18:19:29.872+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.QueryTimeoutException: Redis command timed out]
-2026-03-05T18:19:29.870+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-9] c.blog.exception.GlobalExceptionHandler  : 业务异常: Redis command timed out
-2026-03-05T18:19:29.870+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-6] c.blog.exception.GlobalExceptionHandler  : 业务异常: Redis command timed out
-2026-03-05T18:19:29.872+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.QueryTimeoutException: Redis command timed out]
-2026-03-05T18:19:29.871+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.QueryTimeoutException: Redis command timed out]
-2026-03-05T18:19:29.872+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.QueryTimeoutException: Redis command timed out]
-2026-03-05T18:19:29.872+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.QueryTimeoutException: Redis command timed out]
-2026-03-05T18:19:37.800+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-2] c.blog.exception.GlobalExceptionHandler  : 业务异常: Redis command timed out
-2026-03-05T18:19:37.800+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-7] c.blog.exception.GlobalExceptionHandler  : 业务异常: Redis command timed out
-2026-03-05T18:19:37.801+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-11] c.blog.exception.GlobalExceptionHandler  : 业务异常: Redis command timed out
-2026-03-05T18:19:37.801+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.QueryTimeoutException: Redis command timed out]
-2026-03-05T18:19:37.801+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.QueryTimeoutException: Redis command timed out]
-2026-03-05T18:19:37.801+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-12] c.blog.exception.GlobalExceptionHandler  : 业务异常: Redis command timed out
-2026-03-05T18:19:37.801+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-11] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.QueryTimeoutException: Redis command timed out]
-2026-03-05T18:19:37.802+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-12] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.QueryTimeoutException: Redis command timed out]
-2026-03-05T18:19:37.802+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-4] c.blog.exception.GlobalExceptionHandler  : 业务异常: Redis command timed out
-2026-03-05T18:19:37.802+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-8] c.blog.exception.GlobalExceptionHandler  : 业务异常: Redis command timed out
-2026-03-05T18:19:37.802+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.QueryTimeoutException: Redis command timed out]
-2026-03-05T18:19:37.802+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.dao.QueryTimeoutException: Redis command timed out]
-2026-03-05T18:19:49.819+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-17] c.blog.exception.GlobalExceptionHandler  : 业务异常: Redis command interrupted
-2026-03-05T18:19:49.819+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-18] c.blog.exception.GlobalExceptionHandler  : 业务异常: Redis command interrupted
-2026-03-05T18:19:49.819+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-1] c.blog.exception.GlobalExceptionHandler  : 业务异常: Redis command interrupted
-2026-03-05T18:19:49.820+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-14] c.blog.exception.GlobalExceptionHandler  : 业务异常: Redis command interrupted
-2026-03-05T18:19:49.820+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-15] c.blog.exception.GlobalExceptionHandler  : 业务异常: Redis command interrupted
-2026-03-05T18:19:49.821+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.data.redis.RedisSystemException: Redis command interrupted]
-2026-03-05T18:19:49.821+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-15] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.data.redis.RedisSystemException: Redis command interrupted]
-2026-03-05T18:19:49.821+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-14] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.data.redis.RedisSystemException: Redis command interrupted]
-2026-03-05T18:19:49.820+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-16] c.blog.exception.GlobalExceptionHandler  : 业务异常: Redis command interrupted
-2026-03-05T18:19:49.819+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-3] c.blog.exception.GlobalExceptionHandler  : 业务异常: Redis command interrupted
-2026-03-05T18:19:49.821+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-16] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.data.redis.RedisSystemException: Redis command interrupted]
-2026-03-05T18:19:49.819+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-13] c.blog.exception.GlobalExceptionHandler  : 业务异常: Redis command interrupted
-2026-03-05T18:19:49.819+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-6] c.blog.exception.GlobalExceptionHandler  : 业务异常: Redis command interrupted
-2026-03-05T18:19:49.821+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-17] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.data.redis.RedisSystemException: Redis command interrupted]
-2026-03-05T18:19:49.821+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-18] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.data.redis.RedisSystemException: Redis command interrupted]
-2026-03-05T18:19:49.822+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-13] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.data.redis.RedisSystemException: Redis command interrupted]
-2026-03-05T18:19:49.822+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.data.redis.RedisSystemException: Redis command interrupted]
-2026-03-05T18:19:49.822+08:00  WARN 5320 --- [blog-backend] [http-nio-8080-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.data.redis.RedisSystemException: Redis command interrupted]
-2026-03-05T18:19:50.013+08:00  INFO 5320 --- [blog-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-03-05T18:19:50.064+08:00  INFO 5320 --- [blog-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2026-03-05T18:20:06.273+08:00  INFO 13784 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Starting BlogApplication using Java 17.0.12 with PID 13784 (D:\workspace-cursor\blog\blog-backend\target\classes started by 一朝风月 in D:\workspace-cursor\blog)
-2026-03-05T18:20:06.275+08:00 DEBUG 13784 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Running with Spring Boot v3.2.5, Spring v6.1.6
-2026-03-05T18:20:06.275+08:00  INFO 13784 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : The following 1 profile is active: "dev"
-2026-03-05T18:20:06.310+08:00  INFO 13784 --- [blog-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-03-05T18:20:06.310+08:00  INFO 13784 --- [blog-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-03-05T18:20:08.432+08:00  INFO 13784 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T18:20:08.434+08:00  INFO 13784 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
-2026-03-05T18:20:08.450+08:00  INFO 13784 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Elasticsearch repository interfaces.
-2026-03-05T18:20:08.455+08:00  INFO 13784 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T18:20:08.455+08:00  INFO 13784 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
-2026-03-05T18:20:08.458+08:00  INFO 13784 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 Reactive Elasticsearch repository interfaces.
-2026-03-05T18:20:08.467+08:00  INFO 13784 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T18:20:08.468+08:00  INFO 13784 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-03-05T18:20:08.478+08:00  INFO 13784 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
-2026-03-05T18:20:09.517+08:00  INFO 13784 --- [blog-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2026-03-05T18:20:09.527+08:00  INFO 13784 --- [blog-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-03-05T18:20:09.527+08:00  INFO 13784 --- [blog-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2026-03-05T18:20:09.590+08:00  INFO 13784 --- [blog-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2026-03-05T18:20:09.591+08:00  INFO 13784 --- [blog-backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3280 ms
-2026-03-05T18:20:10.210+08:00 DEBUG 13784 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\ArticleMapper.xml]'
-2026-03-05T18:20:10.224+08:00 DEBUG 13784 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\CommentMapper.xml]'
-2026-03-05T18:20:10.236+08:00 DEBUG 13784 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\PermissionMapper.xml]'
-2026-03-05T18:20:10.248+08:00 DEBUG 13784 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserMapper.xml]'
-2026-03-05T18:20:10.259+08:00 DEBUG 13784 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserRoleMapper.xml]'
-2026-03-05T18:20:12.964+08:00  INFO 13784 --- [blog-backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2026-03-05T18:20:13.187+08:00  INFO 13784 --- [blog-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/api'
-2026-03-05T18:20:13.198+08:00  INFO 13784 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Started BlogApplication in 7.45 seconds (process running for 8.198)
-2026-03-05T18:20:13.202+08:00 DEBUG 13784 --- [blog-backend] [restartedMain] c.b.m.a.DdlApplicationRunner             :   ...  DDL start create  ...  
-2026-03-05T18:20:13.202+08:00 DEBUG 13784 --- [blog-backend] [restartedMain] c.b.m.a.DdlApplicationRunner             :   ...  DDL end create  ...  
-2026-03-05T18:20:16.109+08:00  INFO 13784 --- [blog-backend] [http-nio-8080-exec-8] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-03-05T18:20:16.109+08:00  INFO 13784 --- [blog-backend] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-03-05T18:20:16.110+08:00  INFO 13784 --- [blog-backend] [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2026-03-05T18:20:16.387+08:00  INFO 13784 --- [blog-backend] [http-nio-8080-exec-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-03-05T18:20:16.557+08:00  INFO 13784 --- [blog-backend] [http-nio-8080-exec-8] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7ee07a20
-2026-03-05T18:20:16.558+08:00  INFO 13784 --- [blog-backend] [http-nio-8080-exec-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-03-05T18:44:17.235+08:00  INFO 13784 --- [blog-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-03-05T18:44:17.271+08:00  INFO 13784 --- [blog-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2026-03-05T18:44:32.205+08:00  INFO 25476 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Starting BlogApplication using Java 17.0.12 with PID 25476 (D:\workspace-cursor\blog\blog-backend\target\classes started by 一朝风月 in D:\workspace-cursor\blog)
-2026-03-05T18:44:32.206+08:00 DEBUG 25476 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Running with Spring Boot v3.2.5, Spring v6.1.6
-2026-03-05T18:44:32.207+08:00  INFO 25476 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : The following 1 profile is active: "dev"
-2026-03-05T18:44:32.238+08:00  INFO 25476 --- [blog-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-03-05T18:44:32.238+08:00  INFO 25476 --- [blog-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-03-05T18:44:33.841+08:00  INFO 25476 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T18:44:33.843+08:00  INFO 25476 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
-2026-03-05T18:44:33.857+08:00  INFO 25476 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 Elasticsearch repository interfaces.
-2026-03-05T18:44:33.861+08:00  INFO 25476 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T18:44:33.861+08:00  INFO 25476 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
-2026-03-05T18:44:33.864+08:00  INFO 25476 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 Reactive Elasticsearch repository interfaces.
-2026-03-05T18:44:33.871+08:00  INFO 25476 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T18:44:33.871+08:00  INFO 25476 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-03-05T18:44:33.878+08:00  INFO 25476 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
-2026-03-05T18:44:34.690+08:00  INFO 25476 --- [blog-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2026-03-05T18:44:34.700+08:00  INFO 25476 --- [blog-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-03-05T18:44:34.701+08:00  INFO 25476 --- [blog-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2026-03-05T18:44:34.754+08:00  INFO 25476 --- [blog-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2026-03-05T18:44:34.755+08:00  INFO 25476 --- [blog-backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2517 ms
-2026-03-05T18:44:35.332+08:00 DEBUG 25476 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\ArticleMapper.xml]'
-2026-03-05T18:44:35.346+08:00 DEBUG 25476 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\CommentMapper.xml]'
-2026-03-05T18:44:35.355+08:00 DEBUG 25476 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\PermissionMapper.xml]'
-2026-03-05T18:44:35.364+08:00 DEBUG 25476 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserMapper.xml]'
-2026-03-05T18:44:35.372+08:00 DEBUG 25476 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserRoleMapper.xml]'
-2026-03-05T18:44:36.364+08:00  INFO 25476 --- [blog-backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2026-03-05T18:44:36.507+08:00  INFO 25476 --- [blog-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/api'
-2026-03-05T18:44:36.515+08:00  INFO 25476 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Started BlogApplication in 4.678 seconds (process running for 5.68)
-2026-03-05T18:44:36.517+08:00 DEBUG 25476 --- [blog-backend] [restartedMain] c.b.m.a.DdlApplicationRunner             :   ...  DDL start create  ...  
-2026-03-05T18:44:36.518+08:00 DEBUG 25476 --- [blog-backend] [restartedMain] c.b.m.a.DdlApplicationRunner             :   ...  DDL end create  ...  
-2026-03-05T18:44:39.643+08:00  INFO 25476 --- [blog-backend] [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-03-05T18:44:39.643+08:00  INFO 25476 --- [blog-backend] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-03-05T18:44:39.644+08:00  INFO 25476 --- [blog-backend] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2026-03-05T18:44:40.032+08:00  INFO 25476 --- [blog-backend] [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-03-05T18:44:40.163+08:00  INFO 25476 --- [blog-backend] [http-nio-8080-exec-3] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@b6c38af
-2026-03-05T18:44:40.164+08:00  INFO 25476 --- [blog-backend] [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-03-05T18:57:44.813+08:00  INFO 25476 --- [blog-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-03-05T18:57:44.816+08:00  INFO 25476 --- [blog-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2026-03-05T18:57:51.499+08:00  INFO 23212 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Starting BlogApplication using Java 17.0.12 with PID 23212 (D:\workspace-cursor\blog\blog-backend\target\classes started by 一朝风月 in D:\workspace-cursor\blog)
-2026-03-05T18:57:51.500+08:00 DEBUG 23212 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Running with Spring Boot v3.2.5, Spring v6.1.6
-2026-03-05T18:57:51.500+08:00  INFO 23212 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : The following 1 profile is active: "dev"
-2026-03-05T18:57:51.538+08:00  INFO 23212 --- [blog-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-03-05T18:57:51.538+08:00  INFO 23212 --- [blog-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-03-05T18:57:52.054+08:00  INFO 23212 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T18:57:52.055+08:00  INFO 23212 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
-2026-03-05T18:57:52.067+08:00  INFO 23212 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Elasticsearch repository interfaces.
-2026-03-05T18:57:52.070+08:00  INFO 23212 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T18:57:52.071+08:00  INFO 23212 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
-2026-03-05T18:57:52.073+08:00  INFO 23212 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 Reactive Elasticsearch repository interfaces.
-2026-03-05T18:57:52.078+08:00  INFO 23212 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T18:57:52.079+08:00  INFO 23212 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-03-05T18:57:52.089+08:00  INFO 23212 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
-2026-03-05T18:57:52.612+08:00  INFO 23212 --- [blog-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2026-03-05T18:57:52.619+08:00  INFO 23212 --- [blog-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-03-05T18:57:52.619+08:00  INFO 23212 --- [blog-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2026-03-05T18:57:52.656+08:00  INFO 23212 --- [blog-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2026-03-05T18:57:52.657+08:00  INFO 23212 --- [blog-backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1118 ms
-2026-03-05T18:57:52.985+08:00 DEBUG 23212 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\ArticleMapper.xml]'
-2026-03-05T18:57:53.000+08:00 DEBUG 23212 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\CommentMapper.xml]'
-2026-03-05T18:57:53.012+08:00 DEBUG 23212 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\PermissionMapper.xml]'
-2026-03-05T18:57:53.021+08:00 DEBUG 23212 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserMapper.xml]'
-2026-03-05T18:57:53.030+08:00 DEBUG 23212 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserRoleMapper.xml]'
-2026-03-05T18:57:53.773+08:00  INFO 23212 --- [blog-backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2026-03-05T18:57:53.920+08:00  INFO 23212 --- [blog-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/api'
-2026-03-05T18:57:53.928+08:00  INFO 23212 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Started BlogApplication in 2.852 seconds (process running for 3.348)
-2026-03-05T18:57:53.930+08:00 DEBUG 23212 --- [blog-backend] [restartedMain] c.b.m.a.DdlApplicationRunner             :   ...  DDL start create  ...  
-2026-03-05T18:57:53.930+08:00 DEBUG 23212 --- [blog-backend] [restartedMain] c.b.m.a.DdlApplicationRunner             :   ...  DDL end create  ...  
-2026-03-05T19:00:28.984+08:00  INFO 23212 --- [blog-backend] [http-nio-8080-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-03-05T19:00:28.985+08:00  INFO 23212 --- [blog-backend] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-03-05T19:00:28.986+08:00  INFO 23212 --- [blog-backend] [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2026-03-05T19:00:29.212+08:00  WARN 23212 --- [blog-backend] [http-nio-8080-exec-9] c.blog.exception.GlobalExceptionHandler  : 业务异常: token 无效：93db59a8-3e58-4798-b8ca-f1a36afd7977
-2026-03-05T19:00:29.212+08:00  WARN 23212 --- [blog-backend] [http-nio-8080-exec-8] c.blog.exception.GlobalExceptionHandler  : 业务异常: token 无效：93db59a8-3e58-4798-b8ca-f1a36afd7977
-2026-03-05T19:00:29.212+08:00  WARN 23212 --- [blog-backend] [http-nio-8080-exec-7] c.blog.exception.GlobalExceptionHandler  : 业务异常: token 无效：93db59a8-3e58-4798-b8ca-f1a36afd7977
-2026-03-05T19:00:29.230+08:00  INFO 23212 --- [blog-backend] [http-nio-8080-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-03-05T19:00:29.250+08:00  WARN 23212 --- [blog-backend] [http-nio-8080-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [cn.dev33.satoken.exception.NotLoginException: token 无效：93db59a8-3e58-4798-b8ca-f1a36afd7977]
-2026-03-05T19:00:29.250+08:00  WARN 23212 --- [blog-backend] [http-nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [cn.dev33.satoken.exception.NotLoginException: token 无效：93db59a8-3e58-4798-b8ca-f1a36afd7977]
-2026-03-05T19:00:29.250+08:00  WARN 23212 --- [blog-backend] [http-nio-8080-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [cn.dev33.satoken.exception.NotLoginException: token 无效：93db59a8-3e58-4798-b8ca-f1a36afd7977]
-2026-03-05T19:00:29.325+08:00  INFO 23212 --- [blog-backend] [http-nio-8080-exec-6] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2857474
-2026-03-05T19:00:29.326+08:00  INFO 23212 --- [blog-backend] [http-nio-8080-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-03-05T19:03:29.644+08:00  INFO 23212 --- [blog-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-03-05T19:03:29.648+08:00  INFO 23212 --- [blog-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2026-03-05T19:03:35.113+08:00  INFO 13304 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Starting BlogApplication using Java 17.0.12 with PID 13304 (D:\workspace-cursor\blog\blog-backend\target\classes started by 一朝风月 in D:\workspace-cursor\blog)
-2026-03-05T19:03:35.113+08:00 DEBUG 13304 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Running with Spring Boot v3.2.5, Spring v6.1.6
-2026-03-05T19:03:35.114+08:00  INFO 13304 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : The following 1 profile is active: "dev"
-2026-03-05T19:03:35.144+08:00  INFO 13304 --- [blog-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-03-05T19:03:35.144+08:00  INFO 13304 --- [blog-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-03-05T19:03:35.649+08:00  INFO 13304 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T19:03:35.651+08:00  INFO 13304 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
-2026-03-05T19:03:35.667+08:00  INFO 13304 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Elasticsearch repository interfaces.
-2026-03-05T19:03:35.670+08:00  INFO 13304 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T19:03:35.670+08:00  INFO 13304 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
-2026-03-05T19:03:35.673+08:00  INFO 13304 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 Reactive Elasticsearch repository interfaces.
-2026-03-05T19:03:35.679+08:00  INFO 13304 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T19:03:35.680+08:00  INFO 13304 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-03-05T19:03:35.687+08:00  INFO 13304 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
-2026-03-05T19:03:36.211+08:00  INFO 13304 --- [blog-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2026-03-05T19:03:36.218+08:00  INFO 13304 --- [blog-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-03-05T19:03:36.218+08:00  INFO 13304 --- [blog-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2026-03-05T19:03:36.254+08:00  INFO 13304 --- [blog-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2026-03-05T19:03:36.255+08:00  INFO 13304 --- [blog-backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1109 ms
-2026-03-05T19:03:36.582+08:00 DEBUG 13304 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\ArticleMapper.xml]'
-2026-03-05T19:03:36.595+08:00 DEBUG 13304 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\CommentMapper.xml]'
-2026-03-05T19:03:36.606+08:00 DEBUG 13304 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\PermissionMapper.xml]'
-2026-03-05T19:03:36.615+08:00 DEBUG 13304 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserMapper.xml]'
-2026-03-05T19:03:36.625+08:00 DEBUG 13304 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserRoleMapper.xml]'
-2026-03-05T19:03:37.369+08:00  INFO 13304 --- [blog-backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2026-03-05T19:03:37.513+08:00  INFO 13304 --- [blog-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/api'
-2026-03-05T19:03:37.521+08:00  INFO 13304 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Started BlogApplication in 2.687 seconds (process running for 3.144)
-2026-03-05T19:03:37.522+08:00 DEBUG 13304 --- [blog-backend] [restartedMain] c.b.m.a.DdlApplicationRunner             :   ...  DDL start create  ...  
-2026-03-05T19:03:37.523+08:00 DEBUG 13304 --- [blog-backend] [restartedMain] c.b.m.a.DdlApplicationRunner             :   ...  DDL end create  ...  
-2026-03-05T19:05:36.895+08:00  INFO 13304 --- [blog-backend] [http-nio-8080-exec-5] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-03-05T19:05:36.895+08:00  INFO 13304 --- [blog-backend] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-03-05T19:05:36.897+08:00  INFO 13304 --- [blog-backend] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2026-03-05T19:05:37.212+08:00  INFO 13304 --- [blog-backend] [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-03-05T19:05:37.320+08:00  INFO 13304 --- [blog-backend] [http-nio-8080-exec-5] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2b929f1c
-2026-03-05T19:05:37.321+08:00  INFO 13304 --- [blog-backend] [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-03-05T19:05:45.872+08:00  INFO 13304 --- [blog-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-03-05T19:05:45.875+08:00  INFO 13304 --- [blog-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2026-03-05T19:43:56.158+08:00  INFO 25704 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Starting BlogApplication using Java 17.0.12 with PID 25704 (D:\workspace-cursor\blog\blog-backend\target\classes started by 一朝风月 in D:\workspace-cursor\blog)
-2026-03-05T19:43:56.160+08:00 DEBUG 25704 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Running with Spring Boot v3.2.5, Spring v6.1.6
-2026-03-05T19:43:56.160+08:00  INFO 25704 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : The following 1 profile is active: "dev"
-2026-03-05T19:43:56.269+08:00  INFO 25704 --- [blog-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-03-05T19:43:56.269+08:00  INFO 25704 --- [blog-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-03-05T19:43:59.681+08:00  INFO 25704 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T19:43:59.684+08:00  INFO 25704 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
-2026-03-05T19:43:59.727+08:00  INFO 25704 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 38 ms. Found 0 Elasticsearch repository interfaces.
-2026-03-05T19:43:59.732+08:00  INFO 25704 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T19:43:59.733+08:00  INFO 25704 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
-2026-03-05T19:43:59.738+08:00  INFO 25704 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 0 Reactive Elasticsearch repository interfaces.
-2026-03-05T19:43:59.766+08:00  INFO 25704 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T19:43:59.767+08:00  INFO 25704 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-03-05T19:43:59.783+08:00  INFO 25704 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
-2026-03-05T19:44:01.556+08:00  INFO 25704 --- [blog-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2026-03-05T19:44:01.568+08:00  INFO 25704 --- [blog-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-03-05T19:44:01.568+08:00  INFO 25704 --- [blog-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2026-03-05T19:44:01.714+08:00  INFO 25704 --- [blog-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2026-03-05T19:44:01.714+08:00  INFO 25704 --- [blog-backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5445 ms
-2026-03-05T19:44:02.889+08:00 DEBUG 25704 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\ArticleMapper.xml]'
-2026-03-05T19:44:02.918+08:00 DEBUG 25704 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\CommentMapper.xml]'
-2026-03-05T19:44:02.932+08:00 DEBUG 25704 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\PermissionMapper.xml]'
-2026-03-05T19:44:02.963+08:00 DEBUG 25704 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserMapper.xml]'
-2026-03-05T19:44:02.977+08:00 DEBUG 25704 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserRoleMapper.xml]'
-2026-03-05T19:44:05.571+08:00  INFO 25704 --- [blog-backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2026-03-05T19:44:05.948+08:00  INFO 25704 --- [blog-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/api'
-2026-03-05T19:44:05.960+08:00  INFO 25704 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Started BlogApplication in 10.587 seconds (process running for 26.918)
-2026-03-05T19:44:05.963+08:00 DEBUG 25704 --- [blog-backend] [restartedMain] c.b.m.a.DdlApplicationRunner             :   ...  DDL start create  ...  
-2026-03-05T19:44:05.964+08:00 DEBUG 25704 --- [blog-backend] [restartedMain] c.b.m.a.DdlApplicationRunner             :   ...  DDL end create  ...  
-2026-03-05T19:44:43.125+08:00  INFO 25704 --- [blog-backend] [http-nio-8080-exec-7] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-03-05T19:44:43.125+08:00  INFO 25704 --- [blog-backend] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-03-05T19:44:43.126+08:00  INFO 25704 --- [blog-backend] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2026-03-05T19:44:43.895+08:00  INFO 25704 --- [blog-backend] [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-03-05T19:44:44.271+08:00  INFO 25704 --- [blog-backend] [http-nio-8080-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2d167d1d
-2026-03-05T19:44:44.272+08:00  INFO 25704 --- [blog-backend] [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-03-05T19:45:53.392+08:00  WARN 25704 --- [blog-backend] [http-nio-8080-exec-6] c.blog.exception.GlobalExceptionHandler  : 业务异常: token 无效：93db59a8-3e58-4798-b8ca-f1a36afd7977
-2026-03-05T19:45:53.392+08:00  WARN 25704 --- [blog-backend] [http-nio-8080-exec-5] c.blog.exception.GlobalExceptionHandler  : 业务异常: token 无效：93db59a8-3e58-4798-b8ca-f1a36afd7977
-2026-03-05T19:45:53.392+08:00  WARN 25704 --- [blog-backend] [http-nio-8080-exec-8] c.blog.exception.GlobalExceptionHandler  : 业务异常: token 无效：93db59a8-3e58-4798-b8ca-f1a36afd7977
-2026-03-05T19:45:53.397+08:00  WARN 25704 --- [blog-backend] [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [cn.dev33.satoken.exception.NotLoginException: token 无效：93db59a8-3e58-4798-b8ca-f1a36afd7977]
-2026-03-05T19:45:53.397+08:00  WARN 25704 --- [blog-backend] [http-nio-8080-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [cn.dev33.satoken.exception.NotLoginException: token 无效：93db59a8-3e58-4798-b8ca-f1a36afd7977]
-2026-03-05T19:45:53.397+08:00  WARN 25704 --- [blog-backend] [http-nio-8080-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [cn.dev33.satoken.exception.NotLoginException: token 无效：93db59a8-3e58-4798-b8ca-f1a36afd7977]
-2026-03-05T19:53:54.784+08:00  INFO 25704 --- [blog-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-03-05T19:53:54.817+08:00  INFO 25704 --- [blog-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2026-03-05T19:54:57.313+08:00  INFO 15548 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Starting BlogApplication using Java 17.0.12 with PID 15548 (D:\workspace-cursor\blog\blog-backend\target\classes started by 一朝风月 in D:\workspace-cursor\blog)
-2026-03-05T19:54:57.314+08:00 DEBUG 15548 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Running with Spring Boot v3.2.5, Spring v6.1.6
-2026-03-05T19:54:57.314+08:00  INFO 15548 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : The following 1 profile is active: "dev"
-2026-03-05T19:54:57.349+08:00  INFO 15548 --- [blog-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-03-05T19:54:57.349+08:00  INFO 15548 --- [blog-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-03-05T19:54:58.448+08:00  INFO 15548 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T19:54:58.449+08:00  INFO 15548 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
-2026-03-05T19:54:58.464+08:00  INFO 15548 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 Elasticsearch repository interfaces.
-2026-03-05T19:54:58.468+08:00  INFO 15548 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T19:54:58.468+08:00  INFO 15548 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
-2026-03-05T19:54:58.471+08:00  INFO 15548 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 Reactive Elasticsearch repository interfaces.
-2026-03-05T19:54:58.479+08:00  INFO 15548 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T19:54:58.481+08:00  INFO 15548 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-03-05T19:54:58.489+08:00  INFO 15548 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
-2026-03-05T19:54:59.353+08:00  INFO 15548 --- [blog-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2026-03-05T19:54:59.361+08:00  INFO 15548 --- [blog-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-03-05T19:54:59.362+08:00  INFO 15548 --- [blog-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2026-03-05T19:54:59.421+08:00  INFO 15548 --- [blog-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2026-03-05T19:54:59.422+08:00  INFO 15548 --- [blog-backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2072 ms
-2026-03-05T19:55:00.002+08:00 DEBUG 15548 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\ArticleMapper.xml]'
-2026-03-05T19:55:00.022+08:00 DEBUG 15548 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\CommentMapper.xml]'
-2026-03-05T19:55:00.033+08:00 DEBUG 15548 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\PermissionMapper.xml]'
-2026-03-05T19:55:00.042+08:00 DEBUG 15548 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserMapper.xml]'
-2026-03-05T19:55:00.051+08:00 DEBUG 15548 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserRoleMapper.xml]'
-2026-03-05T19:55:01.109+08:00  INFO 15548 --- [blog-backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2026-03-05T19:55:01.271+08:00  INFO 15548 --- [blog-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/api'
-2026-03-05T19:55:01.286+08:00  INFO 15548 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Started BlogApplication in 4.388 seconds (process running for 5.208)
-2026-03-05T19:55:01.321+08:00 DEBUG 15548 --- [blog-backend] [restartedMain] c.b.m.a.DdlApplicationRunner             :   ...  DDL start create  ...  
-2026-03-05T19:55:01.321+08:00 DEBUG 15548 --- [blog-backend] [restartedMain] c.b.m.a.DdlApplicationRunner             :   ...  DDL end create  ...  
-2026-03-05T19:55:01.371+08:00  INFO 15548 --- [blog-backend] [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-03-05T19:55:01.489+08:00  INFO 15548 --- [blog-backend] [scheduling-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3ff438bf
-2026-03-05T19:55:01.490+08:00  INFO 15548 --- [blog-backend] [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-03-05T19:55:08.769+08:00  INFO 15548 --- [blog-backend] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-03-05T19:55:08.769+08:00  INFO 15548 --- [blog-backend] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-03-05T19:55:08.770+08:00  INFO 15548 --- [blog-backend] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2026-03-05T19:56:56.785+08:00  INFO 15548 --- [blog-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2026-03-05T19:56:56.789+08:00  INFO 15548 --- [blog-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2026-03-05T19:59:15.345+08:00  INFO 23540 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Starting BlogApplication using Java 17.0.12 with PID 23540 (D:\workspace-cursor\blog\blog-backend\target\classes started by 一朝风月 in D:\workspace-cursor\blog)
-2026-03-05T19:59:15.346+08:00 DEBUG 23540 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Running with Spring Boot v3.2.5, Spring v6.1.6
-2026-03-05T19:59:15.347+08:00  INFO 23540 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : The following 1 profile is active: "dev"
-2026-03-05T19:59:15.379+08:00  INFO 23540 --- [blog-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-03-05T19:59:15.379+08:00  INFO 23540 --- [blog-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-03-05T19:59:16.006+08:00  INFO 23540 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T19:59:16.007+08:00  INFO 23540 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
-2026-03-05T19:59:16.020+08:00  INFO 23540 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 Elasticsearch repository interfaces.
-2026-03-05T19:59:16.024+08:00  INFO 23540 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T19:59:16.024+08:00  INFO 23540 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
-2026-03-05T19:59:16.026+08:00  INFO 23540 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 Reactive Elasticsearch repository interfaces.
-2026-03-05T19:59:16.034+08:00  INFO 23540 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-03-05T19:59:16.034+08:00  INFO 23540 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-03-05T19:59:16.041+08:00  INFO 23540 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
-2026-03-05T19:59:16.643+08:00  INFO 23540 --- [blog-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2026-03-05T19:59:16.658+08:00  INFO 23540 --- [blog-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-03-05T19:59:16.658+08:00  INFO 23540 --- [blog-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
-2026-03-05T19:59:16.698+08:00  INFO 23540 --- [blog-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2026-03-05T19:59:16.699+08:00  INFO 23540 --- [blog-backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1320 ms
-2026-03-05T19:59:17.064+08:00 DEBUG 23540 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\ArticleMapper.xml]'
-2026-03-05T19:59:17.078+08:00 DEBUG 23540 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\CommentMapper.xml]'
-2026-03-05T19:59:17.090+08:00 DEBUG 23540 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\PermissionMapper.xml]'
-2026-03-05T19:59:17.101+08:00 DEBUG 23540 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserMapper.xml]'
-2026-03-05T19:59:17.111+08:00 DEBUG 23540 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserRoleMapper.xml]'
-2026-03-05T19:59:18.036+08:00  INFO 23540 --- [blog-backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2026-03-05T19:59:18.207+08:00  INFO 23540 --- [blog-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/api'
-2026-03-05T19:59:18.215+08:00  INFO 23540 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Started BlogApplication in 3.155 seconds (process running for 3.581)
-2026-03-05T19:59:18.218+08:00 DEBUG 23540 --- [blog-backend] [restartedMain] c.b.m.a.DdlApplicationRunner             :   ...  DDL start create  ...  
-2026-03-05T19:59:18.219+08:00 DEBUG 23540 --- [blog-backend] [restartedMain] c.b.m.a.DdlApplicationRunner             :   ...  DDL end create  ...  
-2026-03-05T19:59:18.266+08:00  INFO 23540 --- [blog-backend] [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-03-05T19:59:18.358+08:00  INFO 23540 --- [blog-backend] [scheduling-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@637da722
-2026-03-05T19:59:18.359+08:00  INFO 23540 --- [blog-backend] [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-03-05T19:59:22.086+08:00  INFO 23540 --- [blog-backend] [http-nio-8080-exec-5] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-03-05T19:59:22.087+08:00  INFO 23540 --- [blog-backend] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-03-05T19:59:22.089+08:00  INFO 23540 --- [blog-backend] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2026-03-05T20:00:44.574+08:00 DEBUG 23540 --- [blog-backend] [http-nio-8080-exec-2] c.blog.websocket.BlogWebSocketHandler    : WebSocket 连接: 7acab2e4-0b62-6227-6945-fe9f3e989f69
+2026-03-14T10:40:08.203+08:00  INFO 16916 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Starting BlogApplication using Java 17.0.12 with PID 16916 (D:\workspace-cursor\blog\blog-backend\target\classes started by 一朝风月 in D:\workspace-cursor\blog)
+2026-03-14T10:40:08.208+08:00 DEBUG 16916 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-03-14T10:40:08.208+08:00  INFO 16916 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : The following 1 profile is active: "dev"
+2026-03-14T10:40:08.741+08:00  INFO 16916 --- [blog-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-03-14T10:40:08.742+08:00  INFO 16916 --- [blog-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-03-14T10:40:23.719+08:00  INFO 16916 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-14T10:40:23.743+08:00  INFO 16916 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2026-03-14T10:40:23.867+08:00  INFO 16916 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 77 ms. Found 0 Elasticsearch repository interfaces.
+2026-03-14T10:40:23.872+08:00  INFO 16916 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-14T10:40:23.872+08:00  INFO 16916 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2026-03-14T10:40:23.877+08:00  INFO 16916 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2026-03-14T10:40:24.175+08:00  INFO 16916 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-14T10:40:24.186+08:00  INFO 16916 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-14T10:40:24.281+08:00  INFO 16916 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2026-03-14T10:40:36.126+08:00  INFO 16916 --- [blog-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-03-14T10:40:36.514+08:00  INFO 16916 --- [blog-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-14T10:40:36.514+08:00  INFO 16916 --- [blog-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-03-14T10:40:37.115+08:00  INFO 16916 --- [blog-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2026-03-14T10:40:37.115+08:00  INFO 16916 --- [blog-backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 28373 ms
+2026-03-14T10:40:45.747+08:00 DEBUG 16916 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\ArticleMapper.xml]'
+2026-03-14T10:40:45.770+08:00 DEBUG 16916 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\CommentMapper.xml]'
+2026-03-14T10:40:45.786+08:00 DEBUG 16916 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\PermissionMapper.xml]'
+2026-03-14T10:40:45.817+08:00 DEBUG 16916 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserMapper.xml]'
+2026-03-14T10:40:45.830+08:00 DEBUG 16916 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserRoleMapper.xml]'
+2026-03-14T10:40:55.901+08:00  INFO 16916 --- [blog-backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-03-14T10:40:57.303+08:00  INFO 16916 --- [blog-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/api'
+2026-03-14T10:40:57.318+08:00  INFO 16916 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Started BlogApplication in 54.504 seconds (process running for 82.241)
+2026-03-14T10:40:57.449+08:00 DEBUG 16916 --- [blog-backend] [restartedMain] c.b.m.a.DdlApplicationRunner             :   ...  DDL start create  ...  
+2026-03-14T10:40:57.473+08:00 DEBUG 16916 --- [blog-backend] [restartedMain] c.b.m.a.DdlApplicationRunner             :   ...  DDL end create  ...  
+2026-03-14T10:40:57.999+08:00  INFO 16916 --- [blog-backend] [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-14T10:41:00.190+08:00  INFO 16916 --- [blog-backend] [scheduling-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6eef6a0f
+2026-03-14T10:41:00.191+08:00  INFO 16916 --- [blog-backend] [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-14T10:42:21.560+08:00  INFO 16916 --- [blog-backend] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-14T10:42:21.561+08:00  INFO 16916 --- [blog-backend] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-03-14T10:42:21.563+08:00  INFO 16916 --- [blog-backend] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-03-14T10:42:22.048+08:00 ERROR 16916 --- [blog-backend] [http-nio-8080-exec-2] c.blog.exception.GlobalExceptionHandler  : 系统异常
+
+org.apache.catalina.connector.ClientAbortException: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:341) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.connector.OutputBuffer.flushByteBuffer(OutputBuffer.java:776) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.connector.OutputBuffer.append(OutputBuffer.java:673) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.connector.OutputBuffer.writeBytes(OutputBuffer.java:376) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.connector.OutputBuffer.write(OutputBuffer.java:354) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.connector.CoyoteOutputStream.write(CoyoteOutputStream.java:103) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at java.base/java.io.InputStream.transferTo(InputStream.java:783) ~[na:na]
+	at org.springframework.http.converter.ResourceHttpMessageConverter.writeContent(ResourceHttpMessageConverter.java:151) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.http.converter.ResourceHttpMessageConverter.writeInternal(ResourceHttpMessageConverter.java:140) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.http.converter.ResourceHttpMessageConverter.writeInternal(ResourceHttpMessageConverter.java:46) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.http.converter.AbstractHttpMessageConverter.write(AbstractHttpMessageConverter.java:235) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:621) ~[spring-webmvc-6.1.6.jar:6.1.6]
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52) ~[spring-webmvc-6.1.6.jar:6.1.6]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.6.jar:6.1.6]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.6.jar:6.1.6]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.6.jar:6.1.6]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.6.jar:6.1.6]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.20.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.6.jar:6.1.6]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.20.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:206) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at cn.dev33.satoken.filter.SaPathCheckFilterForJakartaServlet.doFilter(SaPathCheckFilterForJakartaServlet.java:55) ~[sa-token-spring-boot3-starter-1.37.0.jar:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+Caused by: java.io.IOException: 你的主机中的软件中止了一个已建立的连接。
+	at java.base/sun.nio.ch.SocketDispatcher.write0(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:54) ~[na:na]
+	at java.base/sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:132) ~[na:na]
+	at java.base/sun.nio.ch.IOUtil.write(IOUtil.java:97) ~[na:na]
+	at java.base/sun.nio.ch.IOUtil.write(IOUtil.java:53) ~[na:na]
+	at java.base/sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:532) ~[na:na]
+	at org.apache.tomcat.util.net.NioChannel.write(NioChannel.java:118) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.doWrite(NioEndpoint.java:1373) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.net.SocketWrapperBase.doWrite(SocketWrapperBase.java:764) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.net.SocketWrapperBase.writeBlocking(SocketWrapperBase.java:589) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.net.SocketWrapperBase.write(SocketWrapperBase.java:533) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.coyote.http11.Http11OutputBuffer$SocketOutputBuffer.doWrite(Http11OutputBuffer.java:540) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.coyote.http11.filters.IdentityOutputFilter.doWrite(IdentityOutputFilter.java:73) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.coyote.http11.Http11OutputBuffer.doWrite(Http11OutputBuffer.java:193) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.coyote.Response.doWrite(Response.java:618) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:329) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	... 59 common frames omitted
+
+2026-03-14T10:42:22.079+08:00  WARN 16916 --- [blog-backend] [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Failure in @ExceptionHandler com.blog.exception.GlobalExceptionHandler#handle(Exception)
+
+org.springframework.http.converter.HttpMessageNotWritableException: No converter for [class com.blog.common.Result] with preset Content-Type 'image/jpeg'
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:319) ~[spring-webmvc-6.1.6.jar:6.1.6]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:192) ~[spring-webmvc-6.1.6.jar:6.1.6]
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:78) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:136) ~[spring-webmvc-6.1.6.jar:6.1.6]
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException(ExceptionHandlerExceptionResolver.java:432) ~[spring-webmvc-6.1.6.jar:6.1.6]
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver.doResolveException(AbstractHandlerMethodExceptionResolver.java:74) ~[spring-webmvc-6.1.6.jar:6.1.6]
+	at org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.resolveException(AbstractHandlerExceptionResolver.java:175) ~[spring-webmvc-6.1.6.jar:6.1.6]
+	at org.springframework.web.servlet.handler.HandlerExceptionResolverComposite.resolveException(HandlerExceptionResolverComposite.java:80) ~[spring-webmvc-6.1.6.jar:6.1.6]
+	at org.springframework.web.servlet.DispatcherServlet.processHandlerException(DispatcherServlet.java:1357) ~[spring-webmvc-6.1.6.jar:6.1.6]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1160) ~[spring-webmvc-6.1.6.jar:6.1.6]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106) ~[spring-webmvc-6.1.6.jar:6.1.6]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.6.jar:6.1.6]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.6.jar:6.1.6]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.6.jar:6.1.6]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.20.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.6.jar:6.1.6]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.20.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:206) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at cn.dev33.satoken.filter.SaPathCheckFilterForJakartaServlet.doFilter(SaPathCheckFilterForJakartaServlet.java:55) ~[sa-token-spring-boot3-starter-1.37.0.jar:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.6.jar:6.1.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:175) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:150) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1736) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.20.jar:10.1.20]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2026-03-14T11:00:08.774+08:00  INFO 16916 --- [blog-backend] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-03-14T11:00:08.982+08:00  INFO 16916 --- [blog-backend] [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-03-14T11:00:09.002+08:00  INFO 16916 --- [blog-backend] [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-03-14T11:00:09.429+08:00  INFO 16916 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Starting BlogApplication using Java 17.0.12 with PID 16916 (D:\workspace-cursor\blog\blog-backend\target\classes started by 一朝风月 in D:\workspace-cursor\blog)
+2026-03-14T11:00:09.430+08:00 DEBUG 16916 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-03-14T11:00:09.430+08:00  INFO 16916 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : The following 1 profile is active: "dev"
+2026-03-14T11:00:11.831+08:00  INFO 16916 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-14T11:00:11.831+08:00  INFO 16916 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2026-03-14T11:00:11.834+08:00  INFO 16916 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 0 Elasticsearch repository interfaces.
+2026-03-14T11:00:11.834+08:00  INFO 16916 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-14T11:00:11.835+08:00  INFO 16916 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2026-03-14T11:00:11.836+08:00  INFO 16916 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2026-03-14T11:00:11.838+08:00  INFO 16916 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-14T11:00:11.838+08:00  INFO 16916 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-14T11:00:11.839+08:00  INFO 16916 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2026-03-14T11:00:11.964+08:00  INFO 16916 --- [blog-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-03-14T11:00:11.965+08:00  INFO 16916 --- [blog-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-14T11:00:11.965+08:00  INFO 16916 --- [blog-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-03-14T11:00:12.110+08:00  INFO 16916 --- [blog-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2026-03-14T11:00:12.110+08:00  INFO 16916 --- [blog-backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2679 ms
+2026-03-14T11:00:12.164+08:00 DEBUG 16916 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\ArticleMapper.xml]'
+2026-03-14T11:00:12.192+08:00 DEBUG 16916 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\CommentMapper.xml]'
+2026-03-14T11:00:12.206+08:00 DEBUG 16916 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\PermissionMapper.xml]'
+2026-03-14T11:00:12.213+08:00 DEBUG 16916 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserMapper.xml]'
+2026-03-14T11:00:12.219+08:00 DEBUG 16916 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserRoleMapper.xml]'
+2026-03-14T11:00:12.542+08:00  INFO 16916 --- [blog-backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-03-14T11:00:12.608+08:00  INFO 16916 --- [blog-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/api'
+2026-03-14T11:00:12.611+08:00  INFO 16916 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Started BlogApplication in 3.292 seconds (process running for 1237.534)
+2026-03-14T11:00:12.611+08:00  INFO 16916 --- [blog-backend] [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-03-14T11:00:12.612+08:00 DEBUG 16916 --- [blog-backend] [restartedMain] c.b.m.a.DdlApplicationRunner             :   ...  DDL start create  ...  
+2026-03-14T11:00:12.612+08:00 DEBUG 16916 --- [blog-backend] [restartedMain] c.b.m.a.DdlApplicationRunner             :   ...  DDL end create  ...  
+2026-03-14T11:00:12.613+08:00  INFO 16916 --- [blog-backend] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2026-03-14T11:00:12.614+08:00  INFO 16916 --- [blog-backend] [scheduling-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3eee4e15
+2026-03-14T11:00:12.614+08:00  INFO 16916 --- [blog-backend] [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-03-14T11:00:27.205+08:00  INFO 16916 --- [blog-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2026-03-14T11:00:27.206+08:00  INFO 16916 --- [blog-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2026-03-14T11:00:29.914+08:00  INFO 13592 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Starting BlogApplication using Java 17.0.12 with PID 13592 (D:\workspace-cursor\blog\blog-backend\target\classes started by 一朝风月 in D:\workspace-cursor\blog)
+2026-03-14T11:00:29.915+08:00 DEBUG 13592 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-03-14T11:00:29.916+08:00  INFO 13592 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : The following 1 profile is active: "dev"
+2026-03-14T11:00:29.946+08:00  INFO 13592 --- [blog-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-03-14T11:00:29.946+08:00  INFO 13592 --- [blog-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-03-14T11:00:30.816+08:00  INFO 13592 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-14T11:00:30.817+08:00  INFO 13592 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2026-03-14T11:00:30.830+08:00  INFO 13592 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 Elasticsearch repository interfaces.
+2026-03-14T11:00:30.833+08:00  INFO 13592 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-14T11:00:30.834+08:00  INFO 13592 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2026-03-14T11:00:30.836+08:00  INFO 13592 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2026-03-14T11:00:30.842+08:00  INFO 13592 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-14T11:00:30.843+08:00  INFO 13592 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-14T11:00:30.849+08:00  INFO 13592 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2026-03-14T11:00:31.943+08:00  INFO 13592 --- [blog-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-03-14T11:00:31.952+08:00  INFO 13592 --- [blog-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-14T11:00:31.952+08:00  INFO 13592 --- [blog-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-03-14T11:00:32.001+08:00  INFO 13592 --- [blog-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2026-03-14T11:00:32.002+08:00  INFO 13592 --- [blog-backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2056 ms
+2026-03-14T11:00:32.469+08:00 DEBUG 13592 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\ArticleMapper.xml]'
+2026-03-14T11:00:32.490+08:00 DEBUG 13592 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\CommentMapper.xml]'
+2026-03-14T11:00:32.503+08:00 DEBUG 13592 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\PermissionMapper.xml]'
+2026-03-14T11:00:32.513+08:00 DEBUG 13592 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserMapper.xml]'
+2026-03-14T11:00:32.521+08:00 DEBUG 13592 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserRoleMapper.xml]'
+2026-03-14T11:00:33.479+08:00  INFO 13592 --- [blog-backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-03-14T11:00:33.623+08:00  INFO 13592 --- [blog-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/api'
+2026-03-14T11:00:33.640+08:00  INFO 13592 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Started BlogApplication in 4.084 seconds (process running for 4.685)
+2026-03-14T11:00:33.644+08:00 DEBUG 13592 --- [blog-backend] [restartedMain] c.b.m.a.DdlApplicationRunner             :   ...  DDL start create  ...  
+2026-03-14T11:00:33.644+08:00 DEBUG 13592 --- [blog-backend] [restartedMain] c.b.m.a.DdlApplicationRunner             :   ...  DDL end create  ...  
+2026-03-14T11:00:33.727+08:00  INFO 13592 --- [blog-backend] [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-14T11:00:34.959+08:00 ERROR 13592 --- [blog-backend] [scheduling-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
+
+java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:815) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:438) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:189) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-5.0.1.jar:na]
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:160) ~[spring-jdbc-6.1.6.jar:6.1.6]
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:118) ~[spring-jdbc-6.1.6.jar:6.1.6]
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81) ~[spring-jdbc-6.1.6.jar:6.1.6]
+	at org.mybatis.spring.transaction.SpringManagedTransaction.openConnection(SpringManagedTransaction.java:80) ~[mybatis-spring-3.0.3.jar:3.0.3]
+	at org.mybatis.spring.transaction.SpringManagedTransaction.getConnection(SpringManagedTransaction.java:67) ~[mybatis-spring-3.0.3.jar:3.0.3]
+	at org.apache.ibatis.executor.BaseExecutor.getConnection(BaseExecutor.java:348) ~[mybatis-3.5.15.jar:3.5.15]
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:89) ~[mybatis-3.5.15.jar:3.5.15]
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:64) ~[mybatis-3.5.15.jar:3.5.15]
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:336) ~[mybatis-3.5.15.jar:3.5.15]
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:158) ~[mybatis-3.5.15.jar:3.5.15]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:110) ~[mybatis-3.5.15.jar:3.5.15]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:90) ~[mybatis-3.5.15.jar:3.5.15]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:154) ~[mybatis-3.5.15.jar:3.5.15]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147) ~[mybatis-3.5.15.jar:3.5.15]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:142) ~[mybatis-3.5.15.jar:3.5.15]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425) ~[mybatis-spring-3.0.3.jar:3.0.3]
+	at jdk.proxy2/jdk.proxy2.$Proxy97.selectList(Unknown Source) ~[na:na]
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224) ~[mybatis-spring-3.0.3.jar:3.0.3]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.executeForMany(MybatisMapperMethod.java:164) ~[mybatis-plus-core-3.5.5.jar:3.5.5]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:77) ~[mybatis-plus-core-3.5.5.jar:3.5.5]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$PlainMethodInvoker.invoke(MybatisMapperProxy.java:152) ~[mybatis-plus-core-3.5.5.jar:3.5.5]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:89) ~[mybatis-plus-core-3.5.5.jar:3.5.5]
+	at jdk.proxy3/jdk.proxy3.$Proxy115.selectList(Unknown Source) ~[na:na]
+	at com.blog.task.WalletRankSyncTask.syncCoinRankFromDb(WalletRankSyncTask.java:40) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:130) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$2(ScheduledMethodRunnable.java:124) ~[spring-context-6.1.6.jar:6.1.6]
+	at io.micrometer.observation.Observation.observe(Observation.java:499) ~[micrometer-observation-1.12.5.jar:1.12.5]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:124) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.1.6.jar:6.1.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2026-03-14T11:00:34.964+08:00  WARN 13592 --- [blog-backend] [scheduling-1] com.blog.task.WalletRankSyncTask         : 同步风月币排行榜失败: null
+2026-03-14T11:05:34.969+08:00  INFO 13592 --- [blog-backend] [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-14T11:05:35.981+08:00 ERROR 13592 --- [blog-backend] [scheduling-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
+
+java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:815) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:438) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:189) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112) ~[HikariCP-5.0.1.jar:na]
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:160) ~[spring-jdbc-6.1.6.jar:6.1.6]
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:118) ~[spring-jdbc-6.1.6.jar:6.1.6]
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81) ~[spring-jdbc-6.1.6.jar:6.1.6]
+	at org.mybatis.spring.transaction.SpringManagedTransaction.openConnection(SpringManagedTransaction.java:80) ~[mybatis-spring-3.0.3.jar:3.0.3]
+	at org.mybatis.spring.transaction.SpringManagedTransaction.getConnection(SpringManagedTransaction.java:67) ~[mybatis-spring-3.0.3.jar:3.0.3]
+	at org.apache.ibatis.executor.BaseExecutor.getConnection(BaseExecutor.java:348) ~[mybatis-3.5.15.jar:3.5.15]
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:89) ~[mybatis-3.5.15.jar:3.5.15]
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:64) ~[mybatis-3.5.15.jar:3.5.15]
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:336) ~[mybatis-3.5.15.jar:3.5.15]
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:158) ~[mybatis-3.5.15.jar:3.5.15]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:110) ~[mybatis-3.5.15.jar:3.5.15]
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:90) ~[mybatis-3.5.15.jar:3.5.15]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:154) ~[mybatis-3.5.15.jar:3.5.15]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147) ~[mybatis-3.5.15.jar:3.5.15]
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:142) ~[mybatis-3.5.15.jar:3.5.15]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425) ~[mybatis-spring-3.0.3.jar:3.0.3]
+	at jdk.proxy2/jdk.proxy2.$Proxy97.selectList(Unknown Source) ~[na:na]
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224) ~[mybatis-spring-3.0.3.jar:3.0.3]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.executeForMany(MybatisMapperMethod.java:164) ~[mybatis-plus-core-3.5.5.jar:3.5.5]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:77) ~[mybatis-plus-core-3.5.5.jar:3.5.5]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$PlainMethodInvoker.invoke(MybatisMapperProxy.java:152) ~[mybatis-plus-core-3.5.5.jar:3.5.5]
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:89) ~[mybatis-plus-core-3.5.5.jar:3.5.5]
+	at jdk.proxy3/jdk.proxy3.$Proxy115.selectList(Unknown Source) ~[na:na]
+	at com.blog.task.WalletRankSyncTask.syncCoinRankFromDb(WalletRankSyncTask.java:40) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:130) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$2(ScheduledMethodRunnable.java:124) ~[spring-context-6.1.6.jar:6.1.6]
+	at io.micrometer.observation.Observation.observe(Observation.java:499) ~[micrometer-observation-1.12.5.jar:1.12.5]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:124) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.1.6.jar:6.1.6]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2026-03-14T11:05:35.983+08:00  WARN 13592 --- [blog-backend] [scheduling-1] com.blog.task.WalletRankSyncTask         : 同步风月币排行榜失败: null
+2026-03-14T11:06:05.729+08:00  INFO 23992 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Starting BlogApplication using Java 17.0.12 with PID 23992 (D:\workspace-cursor\blog\blog-backend\target\classes started by 一朝风月 in D:\workspace-cursor\blog)
+2026-03-14T11:06:05.730+08:00 DEBUG 23992 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-03-14T11:06:05.730+08:00  INFO 23992 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : The following 1 profile is active: "prod"
+2026-03-14T11:06:05.762+08:00  INFO 23992 --- [blog-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-03-14T11:06:05.762+08:00  INFO 23992 --- [blog-backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-03-14T11:06:06.288+08:00  INFO 23992 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-14T11:06:06.289+08:00  INFO 23992 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2026-03-14T11:06:06.302+08:00  INFO 23992 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 Elasticsearch repository interfaces.
+2026-03-14T11:06:06.305+08:00  INFO 23992 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-14T11:06:06.306+08:00  INFO 23992 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2026-03-14T11:06:06.308+08:00  INFO 23992 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2026-03-14T11:06:06.314+08:00  INFO 23992 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-14T11:06:06.315+08:00  INFO 23992 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-14T11:06:06.321+08:00  INFO 23992 --- [blog-backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.
+2026-03-14T11:06:06.881+08:00  INFO 23992 --- [blog-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-03-14T11:06:06.888+08:00  INFO 23992 --- [blog-backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-14T11:06:06.889+08:00  INFO 23992 --- [blog-backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-03-14T11:06:06.929+08:00  INFO 23992 --- [blog-backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2026-03-14T11:06:06.929+08:00  INFO 23992 --- [blog-backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1167 ms
+2026-03-14T11:06:07.289+08:00 DEBUG 23992 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\ArticleMapper.xml]'
+2026-03-14T11:06:07.303+08:00 DEBUG 23992 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\CommentMapper.xml]'
+2026-03-14T11:06:07.316+08:00 DEBUG 23992 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\PermissionMapper.xml]'
+2026-03-14T11:06:07.325+08:00 DEBUG 23992 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserMapper.xml]'
+2026-03-14T11:06:07.333+08:00 DEBUG 23992 --- [blog-backend] [restartedMain] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserRoleMapper.xml]'
+2026-03-14T11:06:08.067+08:00  INFO 23992 --- [blog-backend] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2026-03-14T11:06:08.206+08:00  INFO 23992 --- [blog-backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/api'
+2026-03-14T11:06:08.213+08:00  INFO 23992 --- [blog-backend] [restartedMain] com.blog.BlogApplication                 : Started BlogApplication in 2.738 seconds (process running for 3.161)
+2026-03-14T11:06:08.216+08:00 DEBUG 23992 --- [blog-backend] [restartedMain] c.b.m.a.DdlApplicationRunner             :   ...  DDL start create  ...  
+2026-03-14T11:06:08.216+08:00 DEBUG 23992 --- [blog-backend] [restartedMain] c.b.m.a.DdlApplicationRunner             :   ...  DDL end create  ...  
+2026-03-14T11:06:08.258+08:00  INFO 23992 --- [blog-backend] [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-14T11:06:08.945+08:00  INFO 23992 --- [blog-backend] [scheduling-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@20745c9a
+2026-03-14T11:06:08.947+08:00  INFO 23992 --- [blog-backend] [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-14T11:06:15.212+08:00  INFO 23992 --- [blog-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-03-14T11:06:15.218+08:00  INFO 23992 --- [blog-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-03-14T11:08:50.667+08:00  INFO 21348 --- [blog-backend] [main] com.blog.BlogApplication                 : Starting BlogApplication using Java 17.0.12 with PID 21348 (D:\workspace-cursor\blog\blog-backend\target\classes started by 一朝风月 in D:\workspace-cursor\blog)
+2026-03-14T11:08:50.668+08:00 DEBUG 21348 --- [blog-backend] [main] com.blog.BlogApplication                 : Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-03-14T11:08:50.669+08:00  INFO 21348 --- [blog-backend] [main] com.blog.BlogApplication                 : The following 1 profile is active: "prod"
+2026-03-14T11:08:52.831+08:00  INFO 21348 --- [blog-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-14T11:08:52.834+08:00  INFO 21348 --- [blog-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2026-03-14T11:08:52.850+08:00  INFO 21348 --- [blog-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Elasticsearch repository interfaces.
+2026-03-14T11:08:52.853+08:00  INFO 21348 --- [blog-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-14T11:08:52.854+08:00  INFO 21348 --- [blog-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2026-03-14T11:08:52.857+08:00  INFO 21348 --- [blog-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2026-03-14T11:08:52.883+08:00  INFO 21348 --- [blog-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-14T11:08:52.884+08:00  INFO 21348 --- [blog-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-14T11:08:52.893+08:00  INFO 21348 --- [blog-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2026-03-14T11:08:54.005+08:00  INFO 21348 --- [blog-backend] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-03-14T11:08:54.014+08:00  INFO 21348 --- [blog-backend] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-14T11:08:54.014+08:00  INFO 21348 --- [blog-backend] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-03-14T11:08:54.079+08:00  INFO 21348 --- [blog-backend] [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2026-03-14T11:08:54.080+08:00  INFO 21348 --- [blog-backend] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3310 ms
+2026-03-14T11:08:54.936+08:00 DEBUG 21348 --- [blog-backend] [main] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\ArticleMapper.xml]'
+2026-03-14T11:08:54.959+08:00 DEBUG 21348 --- [blog-backend] [main] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\CommentMapper.xml]'
+2026-03-14T11:08:54.972+08:00 DEBUG 21348 --- [blog-backend] [main] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\PermissionMapper.xml]'
+2026-03-14T11:08:54.984+08:00 DEBUG 21348 --- [blog-backend] [main] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserMapper.xml]'
+2026-03-14T11:08:54.996+08:00 DEBUG 21348 --- [blog-backend] [main] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'file [D:\workspace-cursor\blog\blog-backend\target\classes\mapper\UserRoleMapper.xml]'
+2026-03-14T11:08:56.756+08:00  INFO 21348 --- [blog-backend] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/api'
+2026-03-14T11:08:56.764+08:00  INFO 21348 --- [blog-backend] [main] com.blog.BlogApplication                 : Started BlogApplication in 6.613 seconds (process running for 7.768)
+2026-03-14T11:08:56.777+08:00 DEBUG 21348 --- [blog-backend] [main] c.b.m.a.DdlApplicationRunner             :   ...  DDL start create  ...  
+2026-03-14T11:08:56.777+08:00 DEBUG 21348 --- [blog-backend] [main] c.b.m.a.DdlApplicationRunner             :   ...  DDL end create  ...  
+2026-03-14T11:08:56.839+08:00  INFO 21348 --- [blog-backend] [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-14T11:08:57.205+08:00  INFO 21348 --- [blog-backend] [scheduling-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@77d6a5ca
+2026-03-14T11:08:57.207+08:00  INFO 21348 --- [blog-backend] [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-14T11:14:11.646+08:00  INFO 23708 --- [blog-backend] [main] com.blog.BlogApplication                 : Starting BlogApplication v1.0.0-SNAPSHOT using Java 17.0.12 with PID 23708 (D:\workspace-cursor\blog\blog-backend\target\blog-backend-1.0.0-SNAPSHOT.jar started by 一朝风月 in D:\workspace-cursor\blog)
+2026-03-14T11:14:11.699+08:00 DEBUG 23708 --- [blog-backend] [main] com.blog.BlogApplication                 : Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-03-14T11:14:11.700+08:00  INFO 23708 --- [blog-backend] [main] com.blog.BlogApplication                 : The following 1 profile is active: "prod"
+2026-03-14T11:14:12.825+08:00  INFO 23708 --- [blog-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-14T11:14:12.827+08:00  INFO 23708 --- [blog-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2026-03-14T11:14:12.847+08:00  INFO 23708 --- [blog-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 0 Elasticsearch repository interfaces.
+2026-03-14T11:14:12.853+08:00  INFO 23708 --- [blog-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-14T11:14:12.854+08:00  INFO 23708 --- [blog-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2026-03-14T11:14:12.857+08:00  INFO 23708 --- [blog-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2026-03-14T11:14:12.867+08:00  INFO 23708 --- [blog-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-14T11:14:12.868+08:00  INFO 23708 --- [blog-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-14T11:14:12.879+08:00  INFO 23708 --- [blog-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2026-03-14T11:14:13.790+08:00  INFO 23708 --- [blog-backend] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-03-14T11:14:13.807+08:00  INFO 23708 --- [blog-backend] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-14T11:14:13.807+08:00  INFO 23708 --- [blog-backend] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-03-14T11:14:13.878+08:00  INFO 23708 --- [blog-backend] [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2026-03-14T11:14:13.879+08:00  INFO 23708 --- [blog-backend] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2030 ms
+2026-03-14T11:14:15.218+08:00 DEBUG 23708 --- [blog-backend] [main] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'URL [jar:nested:/D:/workspace-cursor/blog/blog-backend/target/blog-backend-1.0.0-SNAPSHOT.jar/!BOOT-INF/classes/!/mapper/ArticleMapper.xml]'
+2026-03-14T11:14:15.258+08:00 DEBUG 23708 --- [blog-backend] [main] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'URL [jar:nested:/D:/workspace-cursor/blog/blog-backend/target/blog-backend-1.0.0-SNAPSHOT.jar/!BOOT-INF/classes/!/mapper/CommentMapper.xml]'
+2026-03-14T11:14:15.295+08:00 DEBUG 23708 --- [blog-backend] [main] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'URL [jar:nested:/D:/workspace-cursor/blog/blog-backend/target/blog-backend-1.0.0-SNAPSHOT.jar/!BOOT-INF/classes/!/mapper/PermissionMapper.xml]'
+2026-03-14T11:14:15.332+08:00 DEBUG 23708 --- [blog-backend] [main] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'URL [jar:nested:/D:/workspace-cursor/blog/blog-backend/target/blog-backend-1.0.0-SNAPSHOT.jar/!BOOT-INF/classes/!/mapper/UserMapper.xml]'
+2026-03-14T11:14:15.366+08:00 DEBUG 23708 --- [blog-backend] [main] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'URL [jar:nested:/D:/workspace-cursor/blog/blog-backend/target/blog-backend-1.0.0-SNAPSHOT.jar/!BOOT-INF/classes/!/mapper/UserRoleMapper.xml]'
+2026-03-14T11:14:17.977+08:00  INFO 23708 --- [blog-backend] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/api'
+2026-03-14T11:14:17.996+08:00  INFO 23708 --- [blog-backend] [main] com.blog.BlogApplication                 : Started BlogApplication in 7.067 seconds (process running for 7.921)
+2026-03-14T11:14:18.005+08:00 DEBUG 23708 --- [blog-backend] [main] c.b.m.a.DdlApplicationRunner             :   ...  DDL start create  ...  
+2026-03-14T11:14:18.007+08:00 DEBUG 23708 --- [blog-backend] [main] c.b.m.a.DdlApplicationRunner             :   ...  DDL end create  ...  
+2026-03-14T11:14:18.072+08:00  INFO 23708 --- [blog-backend] [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-14T11:14:18.491+08:00  INFO 23708 --- [blog-backend] [scheduling-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@369f592c
+2026-03-14T11:14:18.492+08:00  INFO 23708 --- [blog-backend] [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-14T11:15:40.063+08:00  INFO 23708 --- [blog-backend] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-14T11:15:40.063+08:00  INFO 23708 --- [blog-backend] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-03-14T11:15:40.064+08:00  INFO 23708 --- [blog-backend] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-03-14T11:16:18.197+08:00  INFO 23708 --- [blog-backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-03-14T11:16:37.567+08:00  INFO 6720 --- [blog-backend] [main] com.blog.BlogApplication                 : Starting BlogApplication v1.0.0-SNAPSHOT using Java 17.0.12 with PID 6720 (D:\workspace-cursor\blog\blog-backend\target\blog-backend-1.0.0-SNAPSHOT.jar started by 一朝风月 in D:\workspace-cursor\blog)
+2026-03-14T11:16:37.570+08:00 DEBUG 6720 --- [blog-backend] [main] com.blog.BlogApplication                 : Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-03-14T11:16:37.571+08:00  INFO 6720 --- [blog-backend] [main] com.blog.BlogApplication                 : The following 1 profile is active: "prod"
+2026-03-14T11:16:38.822+08:00  INFO 6720 --- [blog-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-14T11:16:38.825+08:00  INFO 6720 --- [blog-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2026-03-14T11:16:38.845+08:00  INFO 6720 --- [blog-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Elasticsearch repository interfaces.
+2026-03-14T11:16:38.850+08:00  INFO 6720 --- [blog-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-14T11:16:38.851+08:00  INFO 6720 --- [blog-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2026-03-14T11:16:38.856+08:00  INFO 6720 --- [blog-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2026-03-14T11:16:38.872+08:00  INFO 6720 --- [blog-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-03-14T11:16:38.874+08:00  INFO 6720 --- [blog-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-03-14T11:16:38.885+08:00  INFO 6720 --- [blog-backend] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2026-03-14T11:16:39.885+08:00  INFO 6720 --- [blog-backend] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-03-14T11:16:39.905+08:00  INFO 6720 --- [blog-backend] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-14T11:16:39.906+08:00  INFO 6720 --- [blog-backend] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-03-14T11:16:39.980+08:00  INFO 6720 --- [blog-backend] [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2026-03-14T11:16:39.980+08:00  INFO 6720 --- [blog-backend] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2328 ms
+2026-03-14T11:16:41.016+08:00 DEBUG 6720 --- [blog-backend] [main] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'URL [jar:nested:/D:/workspace-cursor/blog/blog-backend/target/blog-backend-1.0.0-SNAPSHOT.jar/!BOOT-INF/classes/!/mapper/ArticleMapper.xml]'
+2026-03-14T11:16:41.061+08:00 DEBUG 6720 --- [blog-backend] [main] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'URL [jar:nested:/D:/workspace-cursor/blog/blog-backend/target/blog-backend-1.0.0-SNAPSHOT.jar/!BOOT-INF/classes/!/mapper/CommentMapper.xml]'
+2026-03-14T11:16:41.095+08:00 DEBUG 6720 --- [blog-backend] [main] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'URL [jar:nested:/D:/workspace-cursor/blog/blog-backend/target/blog-backend-1.0.0-SNAPSHOT.jar/!BOOT-INF/classes/!/mapper/PermissionMapper.xml]'
+2026-03-14T11:16:41.119+08:00 DEBUG 6720 --- [blog-backend] [main] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'URL [jar:nested:/D:/workspace-cursor/blog/blog-backend/target/blog-backend-1.0.0-SNAPSHOT.jar/!BOOT-INF/classes/!/mapper/UserMapper.xml]'
+2026-03-14T11:16:41.146+08:00 DEBUG 6720 --- [blog-backend] [main] c.b.m.e.s.MybatisSqlSessionFactoryBean   : Parsed mapper file: 'URL [jar:nested:/D:/workspace-cursor/blog/blog-backend/target/blog-backend-1.0.0-SNAPSHOT.jar/!BOOT-INF/classes/!/mapper/UserRoleMapper.xml]'
+2026-03-14T11:16:43.758+08:00  INFO 6720 --- [blog-backend] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/api'
+2026-03-14T11:16:43.775+08:00  INFO 6720 --- [blog-backend] [main] com.blog.BlogApplication                 : Started BlogApplication in 6.795 seconds (process running for 7.325)
+2026-03-14T11:16:43.783+08:00 DEBUG 6720 --- [blog-backend] [main] c.b.m.a.DdlApplicationRunner             :   ...  DDL start create  ...  
+2026-03-14T11:16:43.784+08:00 DEBUG 6720 --- [blog-backend] [main] c.b.m.a.DdlApplicationRunner             :   ...  DDL end create  ...  
+2026-03-14T11:16:43.840+08:00  INFO 6720 --- [blog-backend] [scheduling-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
