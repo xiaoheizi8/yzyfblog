@@ -1,5 +1,6 @@
 {
   "pages": [
+	
     { "path": "pages/index/index", "style": { "navigationBarTitleText": "首页" } },
     { "path": "pages/article/list", "style": { "navigationBarTitleText": "文章列表" } },
     { "path": "pages/rank/index", "style": { "navigationBarTitleText": "风月币排行榜" } },
@@ -12,7 +13,9 @@
     { "path": "pages/article/edit", "style": { "navigationBarTitleText": "发布文章" } },
     { "path": "pages/article/my", "style": { "navigationBarTitleText": "我的文章" } },
     { "path": "pages/favorite/list", "style": { "navigationBarTitleText": "我的收藏" } },
-    { "path": "pages/profile/edit", "style": { "navigationBarTitleText": "编辑资料" } }
+    { "path": "pages/profile/edit", "style": { "navigationBarTitleText": "编辑资料" } },
+	     { "path": "pages/accounting/index", "style": { "navigationBarTitleText": "账本" } }
+ 
   ],
   "globalStyle": {
     "navigationBarTextStyle": "black",
@@ -29,26 +32,26 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "static/home.svg",
-        "selectedIconPath": "static/home.svg"
+        "iconPath": "static/home.png",
+        "selectedIconPath": "static/home.png"
       },
       {
         "pagePath": "pages/article/list",
         "text": "文章",
-        "iconPath": "static/posts.svg",
-        "selectedIconPath": "static/posts.svg"
+        "iconPath": "static/posts.png",
+        "selectedIconPath": "static/posts.png"
       },
       {
         "pagePath": "pages/rank/index",
         "text": "排行榜",
-        "iconPath": "static/rank.svg",
-        "selectedIconPath": "static/rank.svg"
+        "iconPath": "static/rank.png",
+        "selectedIconPath": "static/rank.png"
       },
       {
         "pagePath": "pages/profile/index",
         "text": "我的",
-        "iconPath": "static/profile.svg",
-        "selectedIconPath": "static/profile.svg"
+        "iconPath": "static/profile.png",
+        "selectedIconPath": "static/profile.png"
       }
     ]
   }

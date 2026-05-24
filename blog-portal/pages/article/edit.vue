@@ -128,24 +128,29 @@ function chooseImages() {
 
 function uploadImages(paths: string[]) {
   if (!paths || !paths.length) return
+  const uploadUrl = `${BASE_URL.replace(/\/$/, '')}/portal/upload/image`
   paths.forEach((p) => {
     uni.uploadFile({
-      url: 'http://localhost:8080/api/portal/upload/image',
+      url: uploadUrl,
       filePath: p,
       name: 'file',
       success(res) {
         try {
-          const data = JSON.parse(res.data)
-          let url = data?.data || data
-          if (url) {
+          // 兼容：微信等端可能返回已解析对象，或字符串需 JSON.parse
+          const raw = res.data
+          const data = typeof raw === 'string' ? JSON.parse(raw) : raw
+          let url = data?.data ?? data?.url ?? data
+          if (url != null && typeof url !== 'string') url = String(url)
+          if (typeof url === 'string' && url.trim()) {
             // 兼容后端返回的相对路径（/uploads/xxx），前端补全为完整 URL
-            if (typeof url === 'string' && !url.startsWith('http')) {
-              url = `${BASE_URL}${url}`
+            if (!url.startsWith('http')) {
+              url = `${BASE_URL.replace(/\/$/, '')}${url.startsWith('/') ? '' : '/'}${url}`
             }
             images.value.push(url)
           }
         } catch (e) {
           console.error('upload parse error', e)
+          uni.showToast({ title: '解析上传结果失败', icon: 'none' })
         }
       },
       fail() {
@@ -200,10 +205,13 @@ function submit() {
     uni.showToast({ title: '请先登录', icon: 'none' })
     return
   }
-  // 将图片以 Markdown 形式附加到内容末尾，避免修改表结构
+  // 将图片以 Markdown 形式附加到内容末尾，只使用有效的字符串 URL，避免 ![]([object Object])
   let content = form.content
-  if (images.value.length) {
-    const md = images.value.map((url) => `![](${url})`).join('\n')
+  const validUrls = images.value
+    .map((url) => (typeof url === 'string' ? url : (url && (url.url || url.path)) ? String(url.url || url.path) : ''))
+    .filter((u) => u && u.trim() && !u.includes('[object Object]'))
+  if (validUrls.length) {
+    const md = validUrls.map((url) => `![](${url})`).join('\n')
     content = `${content}\n\n${md}`
   }
   request({

@@ -10,6 +10,7 @@ import com.blog.model.entity.User;
 import com.blog.mapper.RoleMapper;
 import com.blog.service.AdminUserService;
 import io.swagger.v3.oas.annotations.Operation;
+import jakarta.annotation.Resource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,11 +23,12 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/admin/user")
-@RequiredArgsConstructor
-public class AdminUserController {
 
-    private final AdminUserService adminUserService;
-    private final RoleMapper roleMapper;
+public class AdminUserController {
+    @Resource
+    private   AdminUserService adminUserService;
+    @Resource
+    private   RoleMapper roleMapper;
 
     @Operation(summary = "分页列表")
     @GetMapping("/page")

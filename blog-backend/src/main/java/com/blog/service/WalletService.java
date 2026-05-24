@@ -60,5 +60,14 @@ public interface WalletService {
      * @return 排行列表
      */
     List<CoinRankVO> getCoinRanking(int limit);
+
+    /**
+     * 管理员调整用户风月币余额（增发或扣减）。
+     *
+     * @param userId 用户ID
+     * @param amount 调整金额（正数为增发，负数为扣减）
+     * @param remark 备注说明
+     */
+    void adjustBalance(Long userId, BigDecimal amount, String remark);
 }
 

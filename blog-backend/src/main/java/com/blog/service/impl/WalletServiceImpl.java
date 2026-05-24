@@ -23,6 +23,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -55,6 +56,7 @@ public class WalletServiceImpl implements WalletService {
     private final ArticleMapper articleMapper;
     private final UserMapper userMapper;
     private final RedisTemplate<String, Object> redisTemplate;
+    private final com.blog.websocket.BlogWebSocketHandler webSocketHandler;
 
     @Override
     public UserWallet getWallet(Long userId) {
@@ -188,6 +190,47 @@ public class WalletServiceImpl implements WalletService {
         return list;
     }
 
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void adjustBalance(Long userId, BigDecimal amount, String remark) {
+        if (userId == null || amount == null) {
+            throw new IllegalArgumentException("参数不合法");
+        }
+        if (amount.compareTo(BigDecimal.ZERO) == 0) {
+            return; // 调整金额为0，直接返回
+        }
+
+        String type = amount.compareTo(BigDecimal.ZERO) > 0 ? "ADJUST_IN" : "ADJUST_OUT";
+        String finalRemark = (remark != null ? remark : "管理员调整") + " (" + (amount.compareTo(BigDecimal.ZERO) > 0 ? "增发" : "扣减") + ")";
+
+        changeBalance(userId, amount, type, finalRemark);
+
+        log.info("管理员调整用户风月币: userId={}, amount={}, type={}", userId, amount, type);
+
+        // 通过 WebSocket 推送通知给用户
+        try {
+            UserWallet wallet = getWallet(userId);
+            var user = userMapper.selectById(userId);
+            String nickname = user != null ? (user.getNickname() != null ? user.getNickname() : user.getUsername()) : "用户";
+
+            Map<String, Object> notification = new java.util.HashMap<>();
+            notification.put("type", "COIN_NOTIFICATION");
+            notification.put("title", "风月币变动通知");
+            notification.put("content", String.format("您的风月币%s %s，当前余额：%s。原因：%s",
+                    amount.compareTo(BigDecimal.ZERO) > 0 ? "增加" : "减少",
+                    amount.abs(),
+                    wallet.getBalance(),
+                    finalRemark));
+            notification.put("amount", amount);
+            notification.put("balance", wallet.getBalance());
+            notification.put("time", java.time.LocalDateTime.now().toString());
+
+            webSocketHandler.sendNotification(userId, notification);
+        } catch (Exception e) {
+            log.error("推送风月币通知失败: userId={}", userId, e);
+        }
+    }
+
     private void increaseBalance(Long userId, BigDecimal amount, String type, String remark) {
         changeBalance(userId, amount, type, remark);
     }
@@ -225,10 +268,40 @@ public class WalletServiceImpl implements WalletService {
         tx.setRemark(remark);
         walletTransactionMapper.insert(tx);
 
-        // 更新排行榜：仅统计收入部分
+        // 更新排行榜：仅统计收入部分，带重试机制
         if (amount.compareTo(BigDecimal.ZERO) > 0) {
-            redisTemplate.opsForZSet().incrementScore(
-                    KEY_COIN_RANK, String.valueOf(userId), amount.longValue());
+            updateRedisWithRetry(KEY_COIN_RANK, String.valueOf(userId), amount.longValue(), 3);
+        }
+    }
+
+    /**
+     * 带重试机制的 Redis 更新。
+     *
+     * @param key         Redis key
+     * @param userId      用户ID
+     * @param score       分数增量
+     * @param maxRetries  最大重试次数
+     */
+    private void updateRedisWithRetry(String key, String userId, long score, int maxRetries) {
+        for (int i = 0; i < maxRetries; i++) {
+            try {
+                redisTemplate.opsForZSet().incrementScore(key, userId, score);
+                log.debug("Redis排行榜更新成功: userId={}, score={}", userId, score);
+                return; // 成功则返回
+            } catch (Exception e) {
+                log.warn("Redis排行榜更新失败，第{}次重试: userId={}", i + 1, userId, e);
+                if (i == maxRetries - 1) {
+                    log.error("Redis排行榜更新失败，已达最大重试次数 {}: userId={}", maxRetries, userId);
+                    // 记录到日志，定时任务会校正
+                }
+                try {
+                    // 递增延迟重试：100ms, 200ms, 300ms
+                    Thread.sleep(100 * (i + 1));
+                } catch (InterruptedException ie) {
+                    Thread.currentThread().interrupt();
+                    log.error("重试等待被中断", ie);
+                }
+            }
         }
     }
 }

@@ -45,7 +45,7 @@
 
 <script setup lang="ts">
 // @ts-nocheck
-import { ref, reactive, onMounted } from 'vue'
+import { ref, reactive, onMounted, onUnmounted } from 'vue'
 import { onShow } from '@dcloudio/uni-app'
 import request, { BASE_URL } from '@/utils/request'
 
@@ -54,26 +54,77 @@ const wallet = ref<any | null>(null)
 const editing = ref(false)
 const profile = reactive({ nickname: '', email: '', phone: '', avatar: '' })
 
+/**
+ * 监听钱包更新事件（来自 App.vue 的通知）
+ */
+function onWalletUpdated() {
+  console.log('收到钱包更新通知，刷新数据')
+  loadWallet()
+  uni.showToast({
+    title: '钱包已更新',
+    icon: 'success',
+    duration: 1500
+  })
+}
+
 function syncUserFromStorage() {
   const cached = uni.getStorageSync('user')
   if (cached) {
-    if (cached.avatar && typeof cached.avatar === 'string' && !cached.avatar.startsWith('http')) {
-      cached.avatar = `${BASE_URL}${cached.avatar}`
-    }
-    user.value = cached
+    const base = (BASE_URL || '').replace(/\/$/, '')
+    const avatar = cached.avatar && typeof cached.avatar === 'string' && !cached.avatar.startsWith('http')
+      ? `${base}${cached.avatar.startsWith('/') ? '' : '/'}${cached.avatar}`
+      : (cached.avatar || '')
+    user.value = { ...cached, avatar }
     profile.nickname = cached.nickname || ''
     profile.email = cached.email || ''
     profile.phone = cached.phone || ''
-    profile.avatar = cached.avatar || ''
+    profile.avatar = avatar
     loadWallet()
   } else {
     user.value = null
     wallet.value = null
   }
 }
+const getUniAppConfig = () => {
+  request({
+    url: '/wx/queryForConfig',
+    method: 'GET',
+    success(res) {
+      const apiResponse = res.data;
 
-onMounted(() => {
-  syncUserFromStorage()
+      if (
+  apiResponse.code === 200 &&
+  apiResponse.data.winterfly === 'yzfy' &&
+  apiResponse.data.config!==""
+      ) {
+     
+   
+      } else {
+       
+        uni.redirectTo({
+          url: '/pages/accounting/index',
+        });
+      }
+    },
+    fail(err) {
+      console.error('请求失败:', err);
+      
+      uni.redirectTo({
+        url: '/pages/accounting/index',
+      });
+    },
+  });
+};
+onMounted(async() => {
+	await	getUniAppConfig();
+  setTimeout(() => syncUserFromStorage(), 0)
+  // 监听钱包更新事件
+  uni.$on('wallet-updated', onWalletUpdated)
+})
+
+onUnmounted(() => {
+  // 移除事件监听
+  uni.$off('wallet-updated', onWalletUpdated)
 })
 
 onShow(() => {
@@ -168,7 +219,7 @@ function onChangeAvatar() {
       const path = res.tempFilePaths?.[0]
       if (!path) return
       uni.uploadFile({
-        url: 'http://localhost:8080/api/portal/upload/avatar',
+        url: 'http://1.14.69.51:8081/api/portal/upload/avatar',
         filePath: path,
         name: 'file',
         success(r) {

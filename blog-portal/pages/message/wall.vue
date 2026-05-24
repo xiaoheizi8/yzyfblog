@@ -57,7 +57,7 @@ function loadMessages() {
 }
 
 onMounted(() => {
-  loadMessages()
+  setTimeout(() => loadMessages(), 0)
 })
 
 function submit() {

@@ -1,5 +1,20 @@
 <template>
   <view class="page">
+    <!-- 在线用户列表侧边栏 -->
+    <view class="online-users" v-if="showOnlineUsers">
+      <view class="online-header">
+        <text class="online-title">在线用户 ({{ onlineUsers.length }})</text>
+        <button class="btn-close" @click="showOnlineUsers = false">×</button>
+      </view>
+      <scroll-view scroll-y class="online-list">
+        <view v-for="user in onlineUsers" :key="user.userId" class="online-item">
+          <image v-if="user.avatar" :src="user.avatar" class="online-avatar" mode="aspectFill" />
+          <view v-else class="online-avatar default-avatar">{{ (user.nickname || 'U').charAt(0) }}</view>
+          <text class="online-name">{{ user.nickname || '用户' }}</text>
+        </view>
+      </scroll-view>
+    </view>
+
     <view class="list">
       <view v-for="m in messages" :key="m.id" class="msg" :class="{ self: m.isSelf, owner: m.isOwner }">
         <text class="msg-user">
@@ -12,7 +27,9 @@
         </view>
       </view>
     </view>
+    
     <view class="input-wrap">
+      <button class="btn-online" @click="showOnlineUsers = !showOnlineUsers">👥</button>
       <input v-model="input" placeholder="输入消息（支持表情、图片等）" class="input" @confirm="send" />
       <button class="btn-send" @click="send">发送</button>
     </view>
@@ -25,11 +42,13 @@ import { ref, onMounted, onUnmounted } from 'vue'
 
 const messages = ref<any[]>([])
 const input = ref('')
+const onlineUsers = ref<any[]>([])
+const showOnlineUsers = ref(false)
 let socketTask: UniApp.SocketTask | null = null
 // 记录本地已发送的消息 ID，用于避免自己消息重复展示
 const sentIds = new Set<string>()
 
-const WS_URL = 'ws://localhost:8080/api/ws/chat'
+const WS_URL = 'ws://http://1.14.69.51/:8080/api/ws/chat'
 
 function connect() {
   if (socketTask) return
@@ -37,15 +56,50 @@ function connect() {
     url: WS_URL,
   })
   socketTask.onOpen(() => {
-    // 连接成功后，可发送一条系统消息或加入通知
+    console.log('WebSocket 连接成功')
+    // 连接成功后，注册用户信息
+    const user = uni.getStorageSync('user') || {}
+    if (user.id) {
+      const registerMsg = {
+        type: 'REGISTER',
+        userId: user.id,
+        nickname: user.nickname || user.username,
+        avatar: user.avatar || '',
+      }
+      socketTask!.send({
+        data: JSON.stringify(registerMsg),
+      })
+    }
   })
   socketTask.onMessage((res) => {
     try {
       const data = JSON.parse(res.data as string)
+      
+      // 处理在线用户列表更新
+      if (data.type === 'ONLINE_USERS') {
+        onlineUsers.value = data.users || []
+        console.log('在线用户列表更新:', onlineUsers.value.length, '人')
+        return
+      }
+      
+      // 处理风月币通知
+      if (data.type === 'COIN_NOTIFICATION') {
+        uni.showModal({
+          title: data.title || '通知',
+          content: data.content || '',
+          showCancel: false,
+          confirmText: '知道了',
+        })
+        console.log('收到风月币通知:', data)
+        return
+      }
+      
+      // 处理聊天消息
       const me = uni.getStorageSync('user') || {}
       const myName = me.nickname || me.username
       const fromName = data.nickname || data.username
       const isSelf = myName && fromName && myName === fromName
+      
       // 如果是自己刚刚本地推送过的消息（通过 clientId 标识），则忽略这次回显
       if (data.clientId && sentIds.has(data.clientId)) {
         return
@@ -53,6 +107,7 @@ function connect() {
       if (data.clientId) {
         sentIds.add(data.clientId)
       }
+      
       messages.value.push({
         id: data.clientId || Date.now(),
         nickname: fromName || '游客',
@@ -76,9 +131,13 @@ function connect() {
     }
   })
   socketTask.onClose(() => {
+    console.log('WebSocket 连接关闭')
     socketTask = null
+    // 3秒后尝试重连
+    setTimeout(() => connect(), 3000)
   })
-  socketTask.onError(() => {
+  socketTask.onError((err) => {
+    console.error('WebSocket 错误:', err)
     socketTask = null
   })
 }
@@ -134,7 +193,9 @@ function send() {
 }
 
 onMounted(() => {
-  connect()
+  // 延迟连接，避免首屏渲染被 WebSocket 阻塞导致模拟器“长时间无响应”
+  // 注意：App.vue 已经建立了全局通知 WebSocket，这里只处理聊天消息
+  setTimeout(() => connect(), 100)
 })
 
 onUnmounted(() => {
@@ -151,18 +212,96 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   background: linear-gradient(135deg, #141e30, #243b55);
+  position: relative;
 }
+
+/* 在线用户列表侧边栏 */
+.online-users {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60%;
+  max-width: 500rpx;
+  height: 100vh;
+  background: rgba(20, 30, 48, 0.95);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -4rpx 0 20rpx rgba(0, 0, 0, 0.5);
+}
+
+.online-header {
+  padding: 30rpx;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1rpx solid rgba(255, 255, 255, 0.1);
+}
+
+.online-title {
+  font-size: 32rpx;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.btn-close {
+  width: 60rpx;
+  height: 60rpx;
+  background: transparent;
+  color: #ffffff;
+  font-size: 48rpx;
+  line-height: 60rpx;
+  padding: 0;
+  margin: 0;
+}
+
+.online-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.online-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid rgba(255, 255, 255, 0.05);
+}
+
+.online-avatar {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.online-name {
+  font-size: 28rpx;
+  color: #ffffff;
+  flex: 1;
+}
+
 .list {
   flex: 1;
   overflow-y: auto;
   padding: 24rpx;
 }
+
 .msg {
   margin-bottom: 24rpx;
 }
+
 .msg.self {
   align-items: flex-end;
 }
+
 .msg-user {
   font-size: 24rpx;
   color: #cfd8dc;
@@ -170,6 +309,7 @@ onUnmounted(() => {
   align-items: center;
   gap: 8rpx;
 }
+
 .tag-owner {
   font-size: 20rpx;
   color: #ffd666;
@@ -177,10 +317,12 @@ onUnmounted(() => {
   border-radius: 20rpx;
   padding: 0 10rpx;
 }
+
 .msg-time {
   font-size: 20rpx;
   color: #90a4ae;
 }
+
 .bubble {
   margin-top: 8rpx;
   max-width: 80%;
@@ -188,20 +330,38 @@ onUnmounted(() => {
   border-radius: 16rpx;
   background: rgba(255, 255, 255, 0.1);
 }
+
 .msg.self .bubble {
   margin-left: auto;
   background: #1890ff;
 }
+
 .msg-content {
   font-size: 30rpx;
   color: #ffffff;
 }
+
 .input-wrap {
   padding: 24rpx;
   background: rgba(0, 0, 0, 0.35);
   display: flex;
   gap: 16rpx;
+  align-items: center;
 }
+
+.btn-online {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 36rpx;
+  background: rgba(255, 255, 255, 0.2);
+  font-size: 32rpx;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .input {
   flex: 1;
   height: 72rpx;
@@ -209,6 +369,7 @@ onUnmounted(() => {
   border-radius: 36rpx;
   padding: 0 24rpx;
 }
+
 .btn-send {
   width: 140rpx;
   height: 72rpx;

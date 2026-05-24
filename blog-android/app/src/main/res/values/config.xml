@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 末尾必须带 /，例如 http://127.0.0.1:8081/api/ -->
+    <string name="api_base_url">http://1.14.69.51:8081/api/</string>
+
+<!--    <string name="api_base_url">http://127.0.0.1:8081/api/</string>-->
+</resources>
+

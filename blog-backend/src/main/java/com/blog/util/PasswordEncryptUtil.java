@@ -22,8 +22,8 @@ public class PasswordEncryptUtil {
      */
     public static void main(String[] args) {
         String raw = (args != null && args.length > 0) ? args[0] : "admin123";
-        String encoded = encode("123456");
-        System.out.println("Raw: " + 123456);
+        String encoded = encode("11111111");
+        System.out.println("Raw: " + 11111111);
         System.out.println("BCrypt: " + encoded);
     }
 

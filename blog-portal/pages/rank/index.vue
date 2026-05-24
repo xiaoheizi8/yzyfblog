@@ -67,7 +67,7 @@ function loadRanking() {
 }
 
 onMounted(() => {
-  loadRanking()
+  setTimeout(() => loadRanking(), 0)
 })
 </script>
 

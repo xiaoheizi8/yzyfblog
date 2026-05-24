@@ -81,6 +81,11 @@ public class ArticleLikeServiceImpl implements ArticleLikeService {
         return 0;
     }
 
+    /**
+     * 基于 ZSET 获取文章点赞数排名
+     * @param limit 条数
+     * @return
+     */
     @Override
     public List<ArticleLikeRankVO> getRanking(int limit) {
         Set<ZSetOperations.TypedTuple<Object>> set = redisTemplate.opsForZSet()
@@ -100,6 +105,11 @@ public class ArticleLikeServiceImpl implements ArticleLikeService {
         return list;
     }
 
+    /**
+     * 降级从数据库获取数据
+     * @param limit 条数
+     * @return
+     */
     private List<ArticleLikeRankVO> fallbackRankingFromDb(int limit) {
         List<Article> list = articleMapper.selectRecommend(null, limit);
         List<ArticleLikeRankVO> result = new ArrayList<>();

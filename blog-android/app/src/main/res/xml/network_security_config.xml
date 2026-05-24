@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- 只对生产后端 IP 1.14.69.51 允许 HTTP 明文 -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">1.14.69.51</domain>
+    </domain-config>
+</network-security-config>
+

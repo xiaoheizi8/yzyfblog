@@ -35,7 +35,8 @@ function loadArticles() {
 }
 
 onMounted(() => {
-  loadArticles()
+  // 延迟请求，让首帧先渲染，避免模拟器报「长时间没有响应」
+  setTimeout(() => loadArticles(), 0)
 })
 
 function goDetail(id: number) {

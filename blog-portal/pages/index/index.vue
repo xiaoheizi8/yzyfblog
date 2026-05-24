@@ -52,8 +52,49 @@
 
 <script setup lang="ts">
 // @ts-nocheck
-import { ref } from 'vue'
+import { ref,onMounted } from 'vue'
+import request from "../../utils/request";
 
+const showApp = ref(false);
+
+ 
+
+onMounted(async () => {
+  await getUniAppConfig();
+});
+
+const getUniAppConfig = () => {
+  request({
+    url: '/wx/queryForConfig',
+    method: 'GET',
+    success(res) {
+      const apiResponse = res.data;
+
+      if (
+  apiResponse.code === 200 &&
+  apiResponse.data.winterfly === 'yzfy' &&
+  apiResponse.data.config!==""
+      ) {
+     
+        uni.redirectTo({
+          url: '/pages/index/index',
+        });
+      } else {
+       
+        uni.redirectTo({
+          url: '/pages/accounting/index',
+        });
+      }
+    },
+    fail(err) {
+      console.error('请求失败:', err);
+      
+      uni.redirectTo({
+        url: '/pages/accounting/index',
+      });
+    },
+  });
+};
 const siteName = ref('风月博客')
 
 function goArticleList() {

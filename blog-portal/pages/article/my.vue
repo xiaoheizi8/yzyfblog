@@ -90,10 +90,10 @@ function goPublish() {
 }
 
 onMounted(() => {
-  token.value = uni.getStorageSync('token') || ''
-  if (token.value) {
-    loadList()
-  }
+  setTimeout(() => {
+    token.value = uni.getStorageSync('token') || ''
+    if (token.value) loadList()
+  }, 0)
 })
 </script>
 

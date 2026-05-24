@@ -23,7 +23,9 @@ public class SaTokenConfig implements WebMvcConfigurer {
                         "/admin/auth/oauth/**",
                         "/portal/**",
                         "/swagger-ui/**",
-                        "/v3/api-docs/**"
+                        "/v3/api-docs/**",
+                        "/wx/config",
+                        "/wx/queryForConfig"
                 );
     }
 }

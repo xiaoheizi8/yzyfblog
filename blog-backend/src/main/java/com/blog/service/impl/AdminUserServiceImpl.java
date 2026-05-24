@@ -8,6 +8,7 @@ import com.blog.model.entity.UserRole;
 import com.blog.mapper.UserMapper;
 import com.blog.mapper.UserRoleMapper;
 import com.blog.service.AdminUserService;
+import jakarta.annotation.Resource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -21,11 +22,12 @@ import java.util.List;
  * @author blog
  */
 @Service
-@RequiredArgsConstructor
-public class AdminUserServiceImpl implements AdminUserService {
 
-    private final UserMapper userMapper;
-    private final UserRoleMapper userRoleMapper;
+public class AdminUserServiceImpl implements AdminUserService {
+    @Resource
+    private   UserMapper userMapper;
+    @Resource
+    private   UserRoleMapper userRoleMapper;
     private static final BCryptPasswordEncoder ENCODER = new BCryptPasswordEncoder();
 
     @Override

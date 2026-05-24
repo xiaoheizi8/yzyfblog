@@ -46,7 +46,7 @@
 <script setup lang="ts">
 // @ts-nocheck
 import { ref, onMounted, computed } from 'vue'
-import request from '@/utils/request'
+import request, { BASE_URL } from '@/utils/request'
 
 const article = ref<any>(null)
 const loading = ref(false)
@@ -61,14 +61,23 @@ let articleId: string | number | null = null
 
 const contentHtml = computed(() => {
   if (!article.value?.content) return ''
-  let md = article.value.content as string
-  // 渲染图片：将 Markdown 的 ![](...) 转成 <img> 标签
-  const imgReg = /!\[[^\]]*]\((https?:\/\/[^\s)]+)\)/g
+  let md = String(article.value.content)
+  // 超长内容只处理前 100000 字符，避免复杂正则阻塞主线程导致「长时间没有响应」
+  const maxLen = 100000
+  if (md.length > maxLen) md = md.slice(0, maxLen)
+  const base = (BASE_URL || '').replace(/\/$/, '')
+  md = md.replace(/!\[\]\(\[object Object\]\)/g, '')
+  md = md.replace(/!\[\]\(\d+\)/g, '')
+  const fullUrlReg = /!\[[^\]]*]\((https?:\/\/[^\s)]+)\)/g
+  const relUrlReg = /!\[[^\]]*]\((\/[^\s)]+)\)/g
   let html = md.replace(
-    imgReg,
+    fullUrlReg,
     '<img src="$1" style="max-width:100%;display:block;margin:12rpx 0;border-radius:8rpx;" />',
   )
-  // 简单处理换行
+  html = html.replace(
+    relUrlReg,
+    `<img src="${base}$1" style="max-width:100%;display:block;margin:12rpx 0;border-radius:8rpx;" />`,
+  )
   html = html.replace(/\n/g, '<br/>')
   return html
 })
@@ -257,8 +266,10 @@ onMounted(() => {
   const id = page.options?.id
   if (id) {
     articleId = id
-    loadDetail(id)
-    loadComments()
+    setTimeout(() => {
+      loadDetail(id)
+      loadComments()
+    }, 0)
   }
 })
 </script>
