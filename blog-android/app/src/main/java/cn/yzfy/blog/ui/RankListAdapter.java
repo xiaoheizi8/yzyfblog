@@ -70,7 +70,7 @@ public class RankListAdapter extends RecyclerView.Adapter<RankListAdapter.VH> {
 
     private String normalizeAvatarUrl(String base, String avatar) {
         if (avatar == null) return "";
-        String u = avatar.trim();
+        String u = avatar.replace("`", "").replace("[", "").replace("]", "").replace(" ", "").trim();
         if (u.startsWith("http://") || u.startsWith("https://")) return u;
         if (base == null) base = "";
         if (base.endsWith("/")) base = base.substring(0, base.length() - 1);
