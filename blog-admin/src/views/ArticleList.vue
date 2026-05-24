@@ -143,13 +143,15 @@ const detailContentHtml = computed(() => {
   if (!detail.value?.content) return ''
   let html = detail.value.content as string
   html = html.replace(/`/g, '').replace(/\[/g, '').replace(/]/g, '')
-  html = html.replace(/!\s*\(/g, '!(')
-  html = html.replace(/\s+\)/g, ')')
-  const imgReg = /!\((https?:\/\/[^)]+)\)/g
-  html = html.replace(
-    imgReg,
-    (match, url) => `<img src="${url.trim()}" style="max-width:100%;display:block;margin:8px 0;border-radius:4px;" />`,
-  )
+  html = html.replace(/\s+/g, ' ')
+  const imgReg = /!\[[^\]]*\]\(([^)]+)\)/g
+  html = html.replace(imgReg, (match, url) => {
+    url = url.trim()
+    if (url.startsWith('http://') || url.startsWith('https://')) {
+      return `<img src="${url}" style="max-width:100%;display:block;margin:8px 0;border-radius:4px;" />`
+    }
+    return ''
+  })
   html = html.replace(/\n/g, '<br/>')
   return html
 })
