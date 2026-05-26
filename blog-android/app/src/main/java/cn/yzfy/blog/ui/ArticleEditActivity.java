@@ -464,7 +464,6 @@ public class ArticleEditActivity extends AppCompatActivity {
 
     private String normalizeUploadUrl(String url) {
         if (url == null) return null;
-        url = url.replace("`", "").replace("[", "").replace("]", "").replace(" ", "").trim();
         if (url.startsWith("http")) return url;
         String base = getString(R.string.api_base_url);
         if (base.endsWith("/")) base = base.substring(0, base.length() - 1);
@@ -503,11 +502,7 @@ public class ArticleEditActivity extends AppCompatActivity {
             if (cursor != null && cursor.moveToFirst()) {
                 int idx = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
                 if (idx >= 0) {
-                    String name = cursor.getString(idx);
-                    if (name != null) {
-                        name = name.replaceAll("[（）()\\[\\]]", "_");
-                    }
-                    return name;
+                    return cursor.getString(idx);
                 }
             }
         } catch (Exception ignored) {

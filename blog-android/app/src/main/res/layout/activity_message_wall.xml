@@ -29,32 +29,6 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:background="#10000000"
-            android:clipChildren="false"
-            android:clipToPadding="false">
-
-            <cn.yzfy.blog.ui.DanmakuView
-                android:id="@+id/danmakuView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:clipChildren="false"
-                android:clipToPadding="false" />
-
-            <TextView
-                android:id="@+id/tvDanmakuHint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top|end"
-                android:layout_margin="8dp"
-                android:alpha="0.5"
-                android:text="弹幕滚动中..."
-                android:textColor="#666"
-                android:textSize="10sp" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
 

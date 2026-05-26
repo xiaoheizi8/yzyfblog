@@ -27,6 +27,10 @@
         <a-menu-item key="/config">
           <router-link to="/config">博客配置</router-link>
         </a-menu-item>
+        <a-menu-item key="/wxConfig">
+          <router-link to="/wxConfig">小程序管理</router-link>
+        </a-menu-item>
+
       </a-menu>
     </a-layout-sider>
     <a-layout class="admin-main">

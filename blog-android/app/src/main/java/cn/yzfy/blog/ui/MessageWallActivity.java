@@ -30,7 +30,6 @@ import retrofit2.Response;
 /**
  * @author 一朝风月
  * @description 留言弹幕墙（对齐 uniapp pages/message/wall.vue），展示留言列表并支持发送。
- *              包含横向滚动的弹幕动画效果。
  * @datetime 2026-03-20
  */
 public class MessageWallActivity extends AppCompatActivity {
@@ -39,7 +38,6 @@ public class MessageWallActivity extends AppCompatActivity {
     private MessageListAdapter adapter;
     private EditText etInput;
     private View loadingOverlay;
-    private DanmakuView danmakuView;
     private boolean submitting;
 
     @Override
@@ -54,7 +52,6 @@ public class MessageWallActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         etInput = findViewById(R.id.etInput);
         loadingOverlay = findViewById(R.id.loadingOverlay);
-        danmakuView = findViewById(R.id.danmakuView);
 
         adapter = new MessageListAdapter();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -79,7 +76,6 @@ public class MessageWallActivity extends AppCompatActivity {
                 Result<List<Message>> res = response.body();
                 if (response.isSuccessful() && res != null && res.isOk() && res.data != null) {
                     adapter.submit(res.data);
-                    danmakuView.addMessages(res.data);
                 } else {
                     Toast.makeText(MessageWallActivity.this, "加载失败", Toast.LENGTH_SHORT).show();
                 }
@@ -107,9 +103,7 @@ public class MessageWallActivity extends AppCompatActivity {
                 submitting = false;
                 Result<Message> res = response.body();
                 if (response.isSuccessful() && res != null && res.isOk() && res.data != null) {
-                    Message message = res.data;
-                    adapter.prepend(message);
-                    danmakuView.addMessage(message);
+                    adapter.prepend(res.data);
                     etInput.setText("");
                     recyclerView.smoothScrollToPosition(0);
                     Toast.makeText(MessageWallActivity.this, "发送成功", Toast.LENGTH_SHORT).show();
@@ -126,13 +120,5 @@ public class MessageWallActivity extends AppCompatActivity {
                 Toast.makeText(MessageWallActivity.this, "网络错误：" + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (danmakuView != null) {
-            danmakuView.clear();
-        }
     }
 }

@@ -23,8 +23,4 @@
     <color name="accent_dark_end">#243B55</color>
     <color name="accent_purple_start">#722ED1</color>
     <color name="accent_purple_end">#F9F0FF</color>
-
-    <!-- Announcement -->
-    <color name="announcement_bg">#FFF7E6</color>
-    <color name="announcement_text">#995600</color>
 </resources>

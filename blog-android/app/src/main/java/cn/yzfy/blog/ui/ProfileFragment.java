@@ -226,7 +226,7 @@ public class ProfileFragment extends Fragment {
                         Toast.makeText(requireContext(), "头像上传失败", Toast.LENGTH_SHORT).show();
                         return;
                     }
-                    String url = res.data != null ? res.data.replace("`", "").replace("[", "").replace("]", "").replace(" ", "").trim() : "";
+                    String url = res.data;
                     Map<String, Object> body = new java.util.HashMap<>();
                     body.put("avatar", url);
                     api.updateProfile(body).enqueue(new Callback<Result<User>>() {
@@ -292,13 +292,7 @@ public class ProfileFragment extends Fragment {
             cursor = requireContext().getContentResolver().query(uri, null, null, null, null);
             if (cursor != null && cursor.moveToFirst()) {
                 int idx = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
-                if (idx >= 0) {
-                    String name = cursor.getString(idx);
-                    if (name != null) {
-                        name = name.replaceAll("[（）()\\[\\]]", "_");
-                    }
-                    return name;
-                }
+                if (idx >= 0) return cursor.getString(idx);
             }
         } catch (Exception ignored) {
         } finally {

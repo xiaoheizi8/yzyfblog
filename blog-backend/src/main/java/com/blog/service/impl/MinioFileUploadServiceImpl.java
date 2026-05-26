@@ -15,7 +15,7 @@ import java.util.UUID;
 /**
  * MinIO 文件上传实现。
  *
- * <p>根据配置将文件上传到 MinIO，对外返回可直接访问的 URL（假设 MinIO bucket 已配置为公开访问）。
+ * <p>根据配置将文件上传到 MinIO，对外返回可直接访问的 URL。
  *
  * @author 一朝风月
  */
@@ -58,7 +58,7 @@ public class MinioFileUploadServiceImpl implements FileUploadService {
             if (!domain.endsWith("/")) {
                 domain += "/";
             }
-            return domain + m.getBucket() + "/" + objectName;
+            return domain + objectName;
         } catch (Exception e) {
             log.error("MinIO 上传失败", e);
             throw new RuntimeException("上传失败: " + e.getMessage());
@@ -72,3 +72,4 @@ public class MinioFileUploadServiceImpl implements FileUploadService {
         return name.substring(name.lastIndexOf('.'));
     }
 }
+

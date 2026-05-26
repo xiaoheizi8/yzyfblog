@@ -22,6 +22,7 @@ const routes = [
       { path: 'tag', name: 'Tag', component: () => import('@/views/TagList.vue') },
           { path: 'comment', name: 'Comment', component: () => import('@/views/CommentList.vue') },
       { path: 'config', name: 'Config', component: () => import('@/views/Config.vue') },
+      {path:'wxConfig' , name: 'WxConfig', component: () => import('@/views/wx/WxConfig.vue')}
     ],
   },
 ]

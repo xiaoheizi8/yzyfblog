@@ -36,7 +36,7 @@ spring:
 blog:
   search-mode: mysql
   upload-mode: local
-  upload-path: D:/blog/uploads
+  upload-path: /blog/uploads
   minio:
     endpoint: http://47.108.216.209:9000/
     access-key: minioadmin

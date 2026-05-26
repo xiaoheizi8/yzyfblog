@@ -102,6 +102,25 @@ const router = useRouter()
 const columns = [
   { title: 'ID', dataIndex: 'id', width: 70 },
   {
+    title: '封面',
+    dataIndex: 'coverImage',
+    width: 80,
+    customRender: ({ record }: { record: ArticleRecord }) =>
+      record.coverImage
+        ? h('img', {
+            src: record.coverImage,
+            style: 'width:48px;height:32px;border-radius:4px;object-fit:cover;border:1px solid #e0dacf;',
+          })
+        : h(
+            'div',
+            {
+              style:
+                'width:48px;height:32px;border-radius:4px;border:1px dashed #d9d0c0;background:#f5f2ea;',
+            },
+            '',
+          ),
+  },
+  {
     title: '标题 / 摘要',
     dataIndex: 'title',
     ellipsis: true,
@@ -142,16 +161,12 @@ const detail = ref<ArticleRecord | null>(null)
 const detailContentHtml = computed(() => {
   if (!detail.value?.content) return ''
   let html = detail.value.content as string
-  html = html.replace(/`/g, '').replace(/\[/g, '').replace(/]/g, '')
-  html = html.replace(/\s+/g, ' ')
-  const imgReg = /!\[[^\]]*\]\(([^)]+)\)/g
-  html = html.replace(imgReg, (match, url) => {
-    url = url.trim()
-    if (url.startsWith('http://') || url.startsWith('https://')) {
-      return `<img src="${url}" style="max-width:100%;display:block;margin:8px 0;border-radius:4px;" />`
-    }
-    return ''
-  })
+  // 将 Markdown 图片语法渲染为 img 标签
+  const imgReg = /!\[[^\]]*]\((https?:\/\/[^\s)]+)\)/g
+  html = html.replace(
+    imgReg,
+    '<img src="$1" style="max-width:100%;display:block;margin:8px 0;border-radius:4px;" />',
+  )
   html = html.replace(/\n/g, '<br/>')
   return html
 })
